@@ -33,7 +33,8 @@
       "soon": "Coming soon",
       "github": "View on GitHub ↗",
       "download": "Download",
-      "noShot": "Screenshot coming soon"
+      "noShot": "Screenshot coming soon",
+      "more": "Learn more →"
     }
   },
   "apps": [
@@ -54,7 +55,50 @@
       "download": "https://github.com/Gionnio/renamy/releases/latest",
       "brew": "brew install --cask gionnio/tap/renamy",
       "icon": "assets/icons/renamy.png",
-      "shot": "assets/shots/renamy.png"
+      "shot": "assets/shots/renamy.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": false,
+            "title": "// why I made it",
+            "text": "Write here why you made Renamy: the problem you had, what was missing in the other apps, what you wanted to learn."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Smart title detection",
+                "text": "Finds the movie or show title in messy filenames by anchoring on the year or the season number."
+              },
+              {
+                "title": "Official metadata",
+                "text": "Titles and years come from TMDB, so every file gets the same, correct name."
+              },
+              {
+                "title": "TV series",
+                "text": "Understands `SxxExx` episodes and asks once for a whole season when a title is ambiguous."
+              },
+              {
+                "title": "Plex, Jellyfin & Emby",
+                "text": "Optional folder structure and ID tags in the formats media servers expect."
+              },
+              {
+                "title": "Fix any match",
+                "text": "Search by title, TMDB ID or a themoviedb.org link when the guess is wrong."
+              },
+              {
+                "title": "Undo",
+                "text": "Revert the last rename or move, including the folders it created."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "ps2manager",
@@ -63,8 +107,8 @@
       "public": true,
       "color": "#5468D8",
       "color2": "#2B358F",
-      "tagline": "Your PS2 game backups, organized.",
-      "description": "Manages the backups of the PS2 and PS1 games you own on an Open PS2 Loader USB drive or SMB share: covers, names and formats. MX4SIO the right way.",
+      "tagline": "OPL, minus the headaches.",
+      "description": "Organizes backups of the PS2 and PS1 games you own for Open PS2 Loader. Cover art, game IDs and file names, all sorted out for you.",
       "tags": [
         "SwiftUI"
       ],
@@ -73,7 +117,50 @@
       "download": "https://github.com/Gionnio/ps2manager/releases/latest",
       "brew": "brew install --cask gionnio/tap/ps2-manager",
       "icon": "assets/icons/ps2manager.png",
-      "shot": "assets/shots/ps2manager.png"
+      "shot": "assets/shots/ps2manager.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": false,
+            "title": "// why I made it",
+            "text": "Write here why you made PS2 Manager: the problem you had, what was missing in the other apps, what you wanted to learn."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Drag & drop install",
+                "text": "Drop PS2 `.iso` backups to copy them, PS1 `.cue`/`.bin` backups to convert them to `.VCD`."
+              },
+              {
+                "title": "PS1 via POPStarter",
+                "text": "Creates the launcher for each game with your own imported files and copies the right patches."
+              },
+              {
+                "title": "Multi-disc games",
+                "text": "Groups discs, writes the files OPL needs and renames everything to a standard format."
+              },
+              {
+                "title": "Titles & covers",
+                "text": "Game names read from the disc image, covers downloaded one by one or for the whole library."
+              },
+              {
+                "title": "Per-game settings",
+                "text": "Compatibility modes, virtual memory cards and cheats for every game."
+              },
+              {
+                "title": "Tools",
+                "text": "Rename, export, convert back to BIN/CUE, defragment and delete, with a queue and progress."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "tazzina",
@@ -83,7 +170,7 @@
       "color": "#E08A2E",
       "color2": "#A44E0E",
       "tagline": "The world needed one more caffeine app. Probably.",
-      "description": "A menu bar app with timed sessions, automatic triggers, sounds, and closed-lid mode.",
+      "description": "A menu bar app with timed sessions, automatic triggers, sounds, and closed-lid mode. Brewed in Italy.",
       "tags": [
         "SwiftUI",
         "Menu bar"
@@ -93,7 +180,50 @@
       "download": "https://github.com/Gionnio/tazzina/releases/latest",
       "brew": "brew install --cask gionnio/tap/tazzina",
       "icon": "assets/icons/tazzina.png",
-      "shot": "assets/shots/tazzina-1791099802.png"
+      "shot": "assets/shots/tazzina-1791099802.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": false,
+            "title": "// why I made it",
+            "text": "Write here why you made Tazzina: the problem you had, what was missing in the other apps, what you wanted to learn."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "One click",
+                "text": "Left click on the cup turns it on or off, right click opens the menu."
+              },
+              {
+                "title": "Sessions",
+                "text": "Indefinitely, for a while, until a time, or as long as an app is running."
+              },
+              {
+                "title": "Triggers",
+                "text": "Stays awake on its own when your rules match: apps, Wi-Fi, displays, power, battery, time, devices."
+              },
+              {
+                "title": "Closed lid",
+                "text": "Keeps a MacBook running with the lid closed, and always restores normal sleep afterwards."
+              },
+              {
+                "title": "Safety",
+                "text": "Ends the session when the battery is low or the charger is unplugged."
+              },
+              {
+                "title": "Automation",
+                "text": "`tazzina://` links for Terminal and Shortcuts."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "encody",
@@ -102,8 +232,8 @@
       "public": true,
       "color": "#8B5CF6",
       "color2": "#4C2F9E",
-      "tagline": "Batch encoding that keeps HDR intact.",
-      "description": "Re-encodes and remuxes your video library. Preserve HDR10, HDR10+ and Dolby Vision. Full control over audio and subtitle tracks.",
+      "tagline": "Power users still get the cockpit, just not by default.",
+      "description": "Re-encodes and remuxes your video library, keeping HDR10, HDR10+ and Dolby Vision intact. Drop, encode, done, or dive into every audio and subtitle track.",
       "tags": [
         "SwiftUI",
         "Go",
@@ -114,28 +244,114 @@
       "download": "https://github.com/Gionnio/encody/releases/latest",
       "brew": "brew install --cask gionnio/tap/encody",
       "icon": "assets/icons/encody.png",
-      "shot": "assets/shots/encody.png"
+      "shot": "assets/shots/encody.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": false,
+            "title": "// why I made it",
+            "text": "Write here why you made Encody: the problem you had, what was missing in the other apps, what you wanted to learn."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Batch queue",
+                "text": "Drop files or folders, reorder, enable or skip items, import and export the queue."
+              },
+              {
+                "title": "HDR aware",
+                "text": "Detects HDR10, HDR10+, HLG and Dolby Vision and re-injects the dynamic metadata after encoding."
+              },
+              {
+                "title": "Presets you can trust",
+                "text": "Custom presets are saved only after a real test encode passes."
+              },
+              {
+                "title": "Film grain detection",
+                "text": "Measures grain on every file and suggests the right preset."
+              },
+              {
+                "title": "Benchmark & quality check",
+                "text": "Compare presets on automatic samples and check results with VMAF, XPSNR, ColorVideoVDP or SSIM."
+              },
+              {
+                "title": "Track selection",
+                "text": "Choose audio and subtitle tracks per file, with smart audio modes."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "uppy",
+      "id": "upgrady",
       "visible": true,
-      "name": "Uppy",
+      "name": "Upgrady",
       "public": false,
       "color": "#4FA8F7",
       "color2": "#2F5BE0",
-      "tagline": "Every app up to date, from the menu bar.",
-      "description": "Checks for updates to your Mac apps, including Homebrew, and installs them in one click.",
+      "tagline": "Every update, one click away.",
+      "description": "Checks every app on your Mac for updates, Homebrew casks included, and installs them for you.",
       "tags": [
         "AppKit",
         "SwiftUI",
         "Homebrew"
       ],
       "note": "Fork of Latest by Max Langer",
-      "repo": "https://github.com/Gionnio/uppy",
+      "repo": "https://github.com/Gionnio/upgrady",
       "download": "",
       "brew": "",
-      "icon": "assets/icons/uppy.png",
-      "shot": "assets/shots/uppy.png"
+      "icon": "assets/icons/upgrady.png",
+      "shot": "assets/shots/upgrady.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": false,
+            "title": "// why I made it",
+            "text": "Write here why you made Upgrady: the problem you had, what was missing in the other apps, what you wanted to learn."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Menu bar app",
+                "text": "Lives in the menu bar with the number of available updates, and opens at login silently."
+              },
+              {
+                "title": "Homebrew integration",
+                "text": "Apps installed with Homebrew are updated through `brew`, so it always stays in sync."
+              },
+              {
+                "title": "Third-party taps",
+                "text": "Reads every installed tap, including personal ones like `gionnio/tap`."
+              },
+              {
+                "title": "Release notes",
+                "text": "Shows the GitHub release notes of every version you are skipping."
+              },
+              {
+                "title": "Adopt manual installs",
+                "text": "Links apps installed by hand to their Homebrew cask."
+              },
+              {
+                "title": "Background checks",
+                "text": "Checks on a schedule and notifies you when updates are found."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "posta",
@@ -156,7 +372,50 @@
       "download": "",
       "brew": "",
       "icon": "assets/icons/posta.png",
-      "shot": "assets/shots/posta.png"
+      "shot": "assets/shots/posta.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": false,
+            "title": "// why I made it",
+            "text": "Write here why you made Posta: the problem you had, what was missing in the other apps, what you wanted to learn."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Mail-style layout",
+                "text": "Mailboxes and nested labels, conversation list and full threads, like Apple Mail."
+              },
+              {
+                "title": "Real Gmail",
+                "text": "Labels, threads, archive, stars and Gmail search syntax through the Gmail API."
+              },
+              {
+                "title": "Liquid Glass",
+                "text": "A native toolbar with grouped actions that feels at home on macOS."
+              },
+              {
+                "title": "Notifications",
+                "text": "Reply, archive or delete straight from the notification."
+              },
+              {
+                "title": "Always there",
+                "text": "Keeps syncing from the menu bar when the window is closed."
+              },
+              {
+                "title": "Keyboard first",
+                "text": "Mail shortcuts plus optional Gmail single-key shortcuts."
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "bento": {
@@ -226,5 +485,11 @@
   },
   "footer": {
     "text": "// EOF"
+  },
+  "projectPage": {
+    "labels": {
+      "back": "← All projects",
+      "next": "Next project"
+    }
   }
 }

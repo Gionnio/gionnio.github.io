@@ -7,13 +7,34 @@
   const lines = (s) => esc(s).replace(/\n/g, "<br>");
   const external = (url) => /^https?:/.test(url || "") ? ` target="_blank" rel="noopener"` : "";
 
+  // Small Markdown subset for long texts: paragraphs, "- " lists, **bold**, *italic*, `code`, [links](url)
+  const inline = (s) => esc(s)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => /^\s*javascript:/i.test(u) ? t
+      : `<a href="${u}"${external(u.replace(/&amp;/g, "&"))}>${t}</a>`);
+  const md = (s) => String(s ?? "").trim().split(/\n\s*\n/).filter(Boolean).map((block) => {
+    const rows = block.split("\n");
+    return rows.every((r) => /^\s*[-•]\s+/.test(r))
+      ? `<ul>${rows.map((r) => `<li>${inline(r.replace(/^\s*[-•]\s+/, ""))}</li>`).join("")}</ul>`
+      : `<p>${rows.map(inline).join("<br>")}</p>`;
+  }).join("");
+
   const GITHUB_ICON = `<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>`;
 
   // State shared between render() and the scroll handler
   let apps = [];
   let active = -1;
+  let current = null; // app id when showing a project page
+  const preview = new URLSearchParams(location.search).has("preview");
 
-  /* ---------- Templates ---------- */
+  const hasPage = (a) => a.page?.enabled;
+  // Relative links: project pages use <base href="../">, so these work from both levels
+  const pageHref = (a) => `${encodeURIComponent(a.id)}/`;
+  const homeHref = (hash = "") => `./${hash}`;
+
+  /* ---------- Shared templates ---------- */
 
   const screenHTML = (a, L) => `
     <div class="wall" style="--c1:${esc(a.color)};--c2:${esc(a.color2)}">
@@ -22,22 +43,35 @@
         : `<div class="placeholder">${a.icon ? `<img src="${esc(a.icon)}" alt="">` : ""}<span>${esc(L.noShot)}</span></div>`}
     </div>`;
 
+  const macbookHTML = (inner) => `
+    <div class="macbook">
+      <div class="lid"><div class="bezel"><div class="screen">
+        <div class="notch"></div>${inner}
+      </div></div></div>
+      <div class="base"><span></span></div>
+    </div>`;
+
+  const badgeHTML = (a, L) => a.public
+    ? `<span class="badge open">${esc(L.open)}</span>`
+    : `<span class="badge soon">${esc(L.soon)}</span>`;
+
+  const actionsHTML = (a, L) => a.public && (a.repo || a.download) ? `<div class="actions">
+      ${a.repo ? `<a class="btn" href="${esc(a.repo)}"${external(a.repo)}>${esc(L.github)}</a>` : ""}
+      ${a.download ? `<a class="btn ghost" href="${esc(a.download)}"${external(a.download)}>${esc(L.download)}</a>` : ""}
+    </div>` : "";
+
   const detailsHTML = (a, L) => `
     <div class="app-head">
       ${a.icon ? `<img class="app-icon" src="${esc(a.icon)}" alt="">` : ""}
-      <div><h2>${esc(a.name)}</h2>${a.public
-        ? `<span class="badge open">${esc(L.open)}</span>`
-        : `<span class="badge soon">${esc(L.soon)}</span>`}</div>
+      <div><h2>${esc(a.name)}</h2>${badgeHTML(a, L)}</div>
     </div>
     ${a.tagline ? `<p class="tagline">${lines(a.tagline)}</p>` : ""}
     ${a.description ? `<p class="desc">${lines(a.description)}</p>` : ""}
     ${a.note ? `<p class="note">${esc(a.note)}</p>` : ""}
     ${a.tags?.length ? `<ul class="chips">${a.tags.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
     ${a.public && a.brew ? `<code class="cmd"><span>$</span> ${esc(a.brew)}</code>` : ""}
-    ${a.public && (a.repo || a.download) ? `<div class="actions">
-      ${a.repo ? `<a class="btn" href="${esc(a.repo)}"${external(a.repo)}>${esc(L.github)}</a>` : ""}
-      ${a.download ? `<a class="btn ghost" href="${esc(a.download)}"${external(a.download)}>${esc(L.download)}</a>` : ""}
-    </div>` : ""}`;
+    ${actionsHTML(a, L)}
+    ${hasPage(a) && L.more ? `<a class="more" href="${pageHref(a)}" data-page="${esc(a.id)}">${esc(L.more)}</a>` : ""}`;
 
   const cardHTML = (c) => {
     const kicker = c.kicker ? `<p class="mono">${esc(c.kicker)}</p>` : "";
@@ -58,7 +92,7 @@
           <ul class="chips">${(c.items || []).map((t) => `<li>${esc(t)}</li>`).join("")}</ul></article>`;
       case "icons":
         return `<article class="card icons" ${style}><div class="icon-grid">${apps.map((a, i) =>
-          `<a href="#${esc(a.id)}" data-goto="${i}" title="${esc(a.name)}"><img src="${esc(a.icon)}" alt="${esc(a.name)}"></a>`).join("")}</div></article>`;
+          `<a href="${hasPage(a) ? pageHref(a) : `#${esc(a.id)}`}" ${hasPage(a) ? `data-page="${esc(a.id)}"` : `data-goto="${i}"`} title="${esc(a.name)}"><img src="${esc(a.icon)}" alt="${esc(a.name)}"></a>`).join("")}</div></article>`;
       default: {
         const big = (+c.rows || 1) > 1;
         return `<article class="card text${big ? " big" : ""}" ${style}>${kicker}
@@ -68,32 +102,41 @@
     }
   };
 
-  /* ---------- Render ---------- */
-
-  function render(c) {
-    const L = c.showcase.labels;
-    apps = c.apps.filter((a) => a.visible !== false && (a.public || c.showcase.showPrivate));
-    const n = Math.max(apps.length, 1);
-    active = -1;
-
-    document.title = c.site.title;
-    $('meta[name="description"]').setAttribute("content", c.site.description);
-
+  function sidebarHTML(c) {
     const s = c.sidebar;
-    $("#sidebar").innerHTML = `
-      <a class="brand" href="#top">${esc(s.brand)}</a>
+    const appLink = (a, i) => current
+      // On a project page every project opens its own page (or the home showcase if it has none)
+      ? `<a href="${hasPage(a) ? pageHref(a) : homeHref(`#${esc(a.id)}`)}"${hasPage(a) ? ` data-page="${esc(a.id)}"` : ` data-home="#${esc(a.id)}"`} class="${a.id === current ? "on" : ""}">`
+      : `<a href="#${esc(a.id)}" data-goto="${i}">`;
+    const moreLink = (l) => current && l.url.startsWith("#")
+      ? `<a href="${homeHref(esc(l.url))}" data-home="${esc(l.url)}">`
+      : `<a href="${esc(l.url)}"${external(l.url)}>`;
+    return `
+      <a class="brand" href="${current ? homeHref() : "#top"}"${current ? ` data-home=""` : ""}>${esc(s.brand)}</a>
       <p class="brand-sub">${esc(s.subtitle)}</p>
       <nav>
         ${apps.length ? `<p class="nav-label">${esc(s.projectsLabel)}</p>
-        <ul class="nav-apps">${apps.map((a, i) => `<li><a href="#${esc(a.id)}" data-goto="${i}">
+        <ul class="nav-apps">${apps.map((a, i) => `<li>${appLink(a, i)}
           ${a.icon ? `<img src="${esc(a.icon)}" alt="">` : ""}${esc(a.name)}</a></li>`).join("")}</ul>` : ""}
         ${s.links?.length ? `<p class="nav-label">${esc(s.moreLabel)}</p>
-        <ul class="nav-more">${s.links.map((l) => `<li><a href="${esc(l.url)}"${external(l.url)}>${esc(l.label)}</a></li>`).join("")}</ul>` : ""}
+        <ul class="nav-more">${s.links.map((l) => `<li>${moreLink(l)}${esc(l.label)}</a></li>`).join("")}</ul>` : ""}
       </nav>
       <p class="sidebar-foot">${esc((s.copyright || "").replace("{year}", new Date().getFullYear()))}</p>`;
+  }
 
+  const footerHTML = (c) => c.footer.text ? `<footer><p class="mono">${lines(c.footer.text)}</p></footer>` : "";
+
+  /* ---------- Home ---------- */
+
+  function renderHome(c) {
+    const L = c.showcase.labels;
+    const n = Math.max(apps.length, 1);
     const h = c.hero;
     const cards = c.bento.cards.filter((k) => k.visible !== false);
+    document.title = c.site.title;
+    document.body.classList.remove("project");
+    document.body.style.removeProperty("--accent");
+
     $("#top").innerHTML = `
       <section class="hero">
         ${h.kicker ? `<p class="mono">${lines(h.kicker)}</p>` : ""}
@@ -104,13 +147,7 @@
       ${apps.length ? `
       <section class="showcase" id="showcase" style="--n:${n}">
         <div class="stage">
-          <div class="macbook">
-            <div class="lid"><div class="bezel"><div class="screen">
-              <div class="notch"></div>
-              <div class="strip">${apps.map((a) => `<div class="slide">${screenHTML(a, L)}</div>`).join("")}</div>
-            </div></div></div>
-            <div class="base"><span></span></div>
-          </div>
+          ${macbookHTML(`<div class="strip">${apps.map((a) => `<div class="slide">${screenHTML(a, L)}</div>`).join("")}</div>`)}
           <div class="details">${apps.map((a, i) =>
             `<div class="detail" id="${esc(a.id)}" data-i="${i}">${detailsHTML(a, L)}</div>`).join("")}</div>
           <div class="dots">${apps.map((a, i) => `<button data-goto="${i}" aria-label="${esc(a.name)}"></button>`).join("")}</div>
@@ -122,12 +159,96 @@
           ${detailsHTML(a, L)}
         </article>`).join("")}</div>` : ""}
       ${cards.length ? `<section class="bento" id="${esc(c.bento.anchor || "about")}">${cards.map(cardHTML).join("")}</section>` : ""}
-      ${c.footer.text ? `<footer><p class="mono">${lines(c.footer.text)}</p></footer>` : ""}`;
+      ${footerHTML(c)}`;
+  }
+
+  /* ---------- Project page ---------- */
+
+  const blockHTML = (b, a) => {
+    const title = b.title ? `<h2>${esc(b.title)}</h2>` : "";
+    switch (b.type) {
+      case "quote":
+        return `<section class="block quote">${b.title ? `<p class="mono">${esc(b.title)}</p>` : ""}<div class="quote-body">${md(b.text)}</div></section>`;
+      case "features":
+        return `<section class="block">${title}
+          <div class="features">${(b.items || []).map((f) => `
+            <div class="feature">${f.title ? `<h3>${esc(f.title)}</h3>` : ""}${md(f.text)}</div>`).join("")}</div></section>`;
+      case "image":
+        return b.image ? `<figure class="block shot${b.frame === "macbook" ? " framed" : ""}">
+          ${b.frame === "macbook"
+            ? macbookHTML(`<div class="wall" style="--c1:${esc(a.color)};--c2:${esc(a.color2)}"><img class="window" src="${esc(b.image)}" alt="${esc(b.caption)}"></div>`)
+            : `<div class="wall plain" style="--c1:${esc(a.color)};--c2:${esc(a.color2)}"><img class="window" src="${esc(b.image)}" alt="${esc(b.caption)}" loading="lazy"></div>`}
+          ${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ""}</figure>` : "";
+      default:
+        return `<section class="block text">${title}<div class="prose">${md(b.text)}</div></section>`;
+    }
+  };
+
+  function renderProject(c, a) {
+    const L = c.showcase.labels;
+    const P = c.projectPage?.labels || {};
+    const page = a.page || {};
+    const withPages = apps.filter(hasPage);
+    const next = withPages[(withPages.indexOf(a) + 1) % withPages.length];
+    document.title = `${a.name} — ${c.sidebar.brand}`;
+    document.body.classList.add("project");
+    document.body.style.setProperty("--accent", a.color);
+
+    $("#top").innerHTML = `
+      <article class="project-page">
+        <a class="back mono" href="${homeHref(`#${esc(a.id)}`)}" data-home="#${esc(a.id)}">${esc(P.back || "← All projects")}</a>
+        <header class="project-head">
+          <div class="app-head">
+            ${a.icon ? `<img class="app-icon" src="${esc(a.icon)}" alt="">` : ""}
+            <div><h2>${esc(a.name)}</h2>${badgeHTML(a, L)}</div>
+          </div>
+          ${a.tagline ? `<h1>${lines(a.tagline)}</h1>` : ""}
+          ${page.intro ? `<div class="intro">${md(page.intro)}</div>` : a.description ? `<p class="intro">${lines(a.description)}</p>` : ""}
+          ${a.public && a.brew ? `<code class="cmd"><span>$</span> ${esc(a.brew)}</code>` : ""}
+          ${actionsHTML(a, L)}
+          ${a.note ? `<p class="note">${esc(a.note)}</p>` : ""}
+        </header>
+        <div class="project-hero">${macbookHTML(screenHTML(a, L))}</div>
+        ${(page.blocks || []).filter((b) => b.visible !== false).map((b) => blockHTML(b, a)).join("")}
+        ${next && next !== a ? `
+        <a class="next" href="${pageHref(next)}" data-page="${esc(next.id)}">
+          <span class="mono">${esc(P.next || "Next project")}</span>
+          <span class="next-name">${next.icon ? `<img src="${esc(next.icon)}" alt="">` : ""}${esc(next.name)} →</span>
+        </a>` : ""}
+      </article>
+      ${footerHTML(c)}`;
+  }
+
+  /* ---------- Render ---------- */
+
+  let content = null;
+  function render(c, pageId = current) {
+    content = c;
+    apps = c.apps.filter((a) => a.visible !== false && (a.public || c.showcase.showPrivate));
+    const a = pageId && apps.find((x) => x.id === pageId && hasPage(x));
+    current = a ? a.id : null;
+    active = -1;
+    $('meta[name="description"]').setAttribute("content", a ? (a.tagline || a.description) : c.site.description);
+    $("#sidebar").innerHTML = sidebarHTML(c);
+    if (a) renderProject(c, a); else renderHome(c);
 
     $$("[data-goto]").forEach((el) => el.addEventListener("click", (e) => {
       e.preventDefault();
       goTo(+el.dataset.goto);
     }));
+    // The editor preview has no generated folders: switch view in place instead of navigating
+    if (preview) {
+      $$("[data-page]").forEach((el) => el.addEventListener("click", (e) => {
+        e.preventDefault();
+        render(content, el.dataset.page);
+        scrollTo(0, 0);
+      }));
+      $$("[data-home]").forEach((el) => el.addEventListener("click", (e) => {
+        e.preventDefault();
+        render(content, null);
+        jumpTo(el.dataset.home.slice(1));
+      }));
+    }
     onScroll();
   }
 
@@ -181,6 +302,14 @@
     scrollTo({ top: showcase.offsetTop + (n > 1 ? (total * i) / (n - 1) : 0), behavior });
   }
 
+  // Scroll to a project in the showcase or to any element id
+  function jumpTo(id) {
+    if (!id) return scrollTo(0, 0);
+    const i = apps.findIndex((a) => a.id === id);
+    if (i >= 0) goTo(i, "auto");
+    else document.getElementById(id)?.scrollIntoView();
+  }
+
   addEventListener("scroll", () => requestAnimationFrame(onScroll), { passive: true });
   addEventListener("resize", onScroll);
   mobile.addEventListener("change", onScroll);
@@ -188,7 +317,7 @@
   /* ---------- Boot ---------- */
 
   // Inside the editor preview the content arrives by message, unsaved edits included
-  if (new URLSearchParams(location.search).has("preview")) {
+  if (preview) {
     document.documentElement.style.scrollBehavior = "auto";
     addEventListener("message", (e) => {
       if (e.origin !== location.origin) return;
@@ -197,26 +326,28 @@
         const y = scrollY;
         render(m.content);
         scrollTo(0, y);
-      } else if (m.type === "goto-app") {
-        const i = apps.findIndex((a) => a.id === m.id);
-        if (i >= 0) goTo(i, "auto");
+      } else if (m.type === "show-home") {
+        if (current) render(content, null);
+        jumpTo(m.id);
+      } else if (m.type === "show-page") {
+        const same = current === m.id;
+        render(content, m.id);
+        if (!same) scrollTo(0, 0);
+        if (m.block != null) $$(".project-page .block")[m.block]?.scrollIntoView({ block: "center" });
       } else if (m.type === "goto") {
+        if (current) render(content, null);
         const el = document.querySelector(m.selector);
         if (el) scrollTo(0, el.getBoundingClientRect().top + scrollY - 20);
       }
     });
     parent.postMessage({ type: "preview-ready" }, location.origin);
   } else {
+    // Project pages are generated folders (<id>/index.html) that declare which project they show
+    const pageId = document.body.dataset.project || null;
     // GitHub Pages caches files for up to 10 minutes: always ask for fresh content
     fetch(`content.json?v=${Date.now()}`, { cache: "no-store" })
       .then((r) => r.json())
-      .then(render)
-      .then(() => {
-        const id = decodeURIComponent(location.hash.slice(1));
-        if (!id) return;
-        const i = apps.findIndex((a) => a.id === id);
-        if (i >= 0) goTo(i, "auto");
-        else document.getElementById(id)?.scrollIntoView();
-      });
+      .then((c) => render(c, pageId))
+      .then(() => { if (!current) jumpTo(decodeURIComponent(location.hash.slice(1))); });
   }
 })();
