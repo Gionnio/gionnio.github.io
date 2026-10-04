@@ -90,7 +90,7 @@
       ],
       "note": "",
       "repo": "https://github.com/Gionnio/tazzina",
-      "download": "",
+      "download": "https://github.com/Gionnio/tazzina/releases/latest",
       "brew": "brew install --cask gionnio/tap/tazzina",
       "icon": "assets/icons/tazzina-1791099638.png",
       "shot": "assets/shots/tazzina.png"
