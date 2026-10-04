@@ -5,8 +5,8 @@
   },
   "sidebar": {
     "brand": "Gionnio",
-    "subtitle": "Made for my Mac",
-    "projectsLabel": "Projects",
+    "subtitle": "Ideas Portfolio",
+    "projectsLabel": "Discover",
     "moreLabel": "More",
     "links": [
       {
@@ -103,7 +103,7 @@
       "color": "#8B5CF6",
       "color2": "#4C2F9E",
       "tagline": "Batch encoding that keeps HDR intact.",
-      "description": "Re-encodes and remuxes a whole video library while preserving HDR10, HDR10+ and Dolby Vision, with full control over audio and subtitle tracks.",
+      "description": "Re-encodes and remuxes your video library. Preserve HDR10, HDR10+ and Dolby Vision. Full control over audio and subtitle tracks.",
       "tags": [
         "SwiftUI",
         "Go",
