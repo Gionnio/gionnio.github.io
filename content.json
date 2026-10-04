@@ -462,7 +462,7 @@
         "rows": 2,
         "kicker": "// about",
         "title": "Hi, I'm Gionnio.",
-        "text": "I make apps for the way I use my Mac, then polish the ones worth sharing. Placeholder text: a few lines about you, what you do and why you build these."
+        "text": "I make apps for the way I use my Mac, then polish the ones worth sharing. "
       },
       {
         "type": "link",
@@ -471,7 +471,7 @@
         "rows": 1,
         "icon": "github",
         "title": "@Gionnio",
-        "text": "All public repositories",
+        "text": "All my repositories",
         "url": "https://github.com/Gionnio"
       },
       {
@@ -481,12 +481,12 @@
         "rows": 1,
         "kicker": "// homebrew",
         "title": "Add my tap",
-        "text": "Then install any open source app with its own command.",
+        "text": "Install any of my app with its own command.",
         "cmd": "brew tap gionnio/tap"
       },
       {
         "type": "chips",
-        "visible": true,
+        "visible": false,
         "cols": 2,
         "rows": 1,
         "kicker": "// stack",
@@ -502,13 +502,13 @@
       },
       {
         "type": "icons",
-        "visible": true,
+        "visible": false,
         "cols": 2,
         "rows": 1
       },
       {
         "type": "text",
-        "visible": true,
+        "visible": false,
         "cols": 4,
         "rows": 1,
         "kicker": "// contact",
