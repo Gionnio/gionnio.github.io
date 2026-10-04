@@ -71,7 +71,7 @@
       "note": "",
       "repo": "https://github.com/Gionnio/ps2manager",
       "download": "https://github.com/Gionnio/ps2manager/releases/latest",
-      "brew": "",
+      "brew": "brew install --cask gionnio/tap/ps2-manager",
       "icon": "assets/icons/ps2manager.png",
       "shot": "assets/shots/ps2manager.png"
     },
