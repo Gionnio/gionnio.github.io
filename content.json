@@ -506,7 +506,7 @@
       "download": "https://github.com/Gionnio/upgrady/releases/latest",
       "brew": "brew install --cask gionnio/tap/upgrady",
       "icon": "assets/icons/upgrady.png",
-      "shot": "assets/shots/upgrady.png",
+      "shot": "assets/shots/upgrady-1791136930.png",
       "page": {
         "enabled": true,
         "intro": "",
