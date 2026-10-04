@@ -118,13 +118,15 @@ main { margin-left: var(--sidebar); }
 
 /* Desktop inside the screen: soft tint of the project color */
 .wall {
-  width: 100%; height: 100%; display: grid; place-items: center;
+  width: 100%; height: 100%; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
   background:
     radial-gradient(90% 80% at 50% 110%, color-mix(in srgb, var(--c1) 40%, #f3f3f5), transparent 70%),
     color-mix(in srgb, var(--c1) 14%, #f3f3f5);
 }
 /* Screenshots already include the macOS window shadow */
-.window { max-width: 92%; max-height: 90%; }
+/* Fit inside the screen whatever the window's proportions: never taller than the screen */
+.window { max-width: 92%; max-height: 90%; min-width: 0; min-height: 0; object-fit: contain; }
 .placeholder { display: grid; justify-items: center; gap: 1.2em; color: var(--c2); font-size: 1.6cqw; }
 .placeholder img { width: 14cqw; height: 14cqw; }
 
