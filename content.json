@@ -371,7 +371,7 @@
       "id": "upgrady",
       "visible": true,
       "name": "Upgrady",
-      "public": false,
+      "public": true,
       "color": "#4FA8F7",
       "color2": "#2F5BE0",
       "tagline": "Every update, one click away.",
@@ -381,12 +381,12 @@
       ],
       "note": "Fork of Latest by Max Langer",
       "repo": "https://github.com/Gionnio/upgrady",
-      "download": "",
-      "brew": "",
+      "download": "https://github.com/Gionnio/upgrady/releases/latest",
+      "brew": "brew install --cask gionnio/tap/upgrady",
       "icon": "assets/icons/upgrady.png",
       "shot": "assets/shots/upgrady.png",
       "page": {
-        "enabled": false,
+        "enabled": true,
         "intro": "",
         "blocks": [
           {
