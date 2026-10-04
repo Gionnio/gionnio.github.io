@@ -62,9 +62,9 @@
         "blocks": [
           {
             "type": "quote",
-            "visible": false,
+            "visible": true,
             "title": "// why I made it",
-            "text": "Write here why you made Renamy: the problem you had, what was missing in the other apps, what you wanted to learn."
+            "text": "I used FileBot for years. When I went looking for a free, open-source alternative that fit the way I work, I couldn't find one. So I built my own, with speed and simplicity as the whole point."
           },
           {
             "type": "features",
@@ -124,9 +124,9 @@
         "blocks": [
           {
             "type": "quote",
-            "visible": false,
+            "visible": true,
             "title": "// why I made it",
-            "text": "Write here why you made PS2 Manager: the problem you had, what was missing in the other apps, what you wanted to learn."
+            "text": "I'm a huge retrogamer. After too many late nights with outdated tools and wrong guides, I finally figured out how OPL actually expects things to be laid out. I wrote a few terminal scripts to prepare the hard drive or MX4SIO for my Free McBoot PS2, so I could play without putting my physical collection at risk. The GUI was the natural next step."
           },
           {
             "type": "features",
@@ -187,9 +187,9 @@
         "blocks": [
           {
             "type": "quote",
-            "visible": false,
+            "visible": true,
             "title": "// why I made it",
-            "text": "Write here why you made Tazzina: the problem you had, what was missing in the other apps, what you wanted to learn."
+            "text": "I wanted something like Amphetamine, but simpler, lighter, and open source. There were already a thousand of them. This is number 1,001."
           },
           {
             "type": "features",
@@ -251,9 +251,9 @@
         "blocks": [
           {
             "type": "quote",
-            "visible": false,
+            "visible": true,
             "title": "// why I made it",
-            "text": "Write here why you made Encody: the problem you had, what was missing in the other apps, what you wanted to learn."
+            "text": "After years of HandBrake, I realized I only ever used three or four presets of my own, refined over time for exactly what I needed. So I wrote a small terminal tool that ran just those, and called it MediaEnc. That tool became the engine behind Encody."
           },
           {
             "type": "features",
@@ -315,9 +315,9 @@
         "blocks": [
           {
             "type": "quote",
-            "visible": false,
+            "visible": true,
             "title": "// why I made it",
-            "text": "Write here why you made Upgrady: the problem you had, what was missing in the other apps, what you wanted to learn."
+            "text": "MacUpdater started giving me trouble on macOS 27. I'd tried Latest years earlier and loved it, but it was missing a few things I relied on. Updaty takes the best of both: exactly what I needed, nothing more."
           },
           {
             "type": "features",
@@ -379,9 +379,9 @@
         "blocks": [
           {
             "type": "quote",
-            "visible": false,
+            "visible": true,
             "title": "// why I made it",
-            "text": "Write here why you made Posta: the problem you had, what was missing in the other apps, what you wanted to learn."
+            "text": "Come on, who doesn't want their Gmail account in Apple Mail, without all the usual limitations?"
           },
           {
             "type": "features",
