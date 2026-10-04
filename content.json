@@ -172,8 +172,7 @@
       "tagline": "The world needed one more caffeine app. Probably.",
       "description": "A menu bar app with timed sessions, automatic triggers, sounds, and closed-lid mode. Brewed in Italy.",
       "tags": [
-        "SwiftUI",
-        "Menu bar"
+        "SwiftUI"
       ],
       "note": "",
       "repo": "https://github.com/Gionnio/tazzina",
@@ -236,7 +235,6 @@
       "description": "Re-encodes and remuxes your video library, keeping HDR10, HDR10+ and Dolby Vision intact. Drop, encode, done, or dive into every audio and subtitle track.",
       "tags": [
         "SwiftUI",
-        "Go",
         "FFmpeg"
       ],
       "note": "",
@@ -285,6 +283,46 @@
                 "text": "Choose audio and subtitle tracks per file, with smart audio modes."
               }
             ]
+          },
+          {
+            "type": "annotated",
+            "visible": true,
+            "title": "How it works",
+            "image": "assets/shots/encody-page-1791121436.png",
+            "caption": "",
+            "numbered": true,
+            "notes": [
+              {
+                "kind": "arrow",
+                "x": 82.2,
+                "y": 7.45,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "green",
+                "text": "Add files or whole folders"
+              },
+              {
+                "kind": "underline",
+                "x": 29.01,
+                "y": 16.66,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "blue",
+                "text": "Every file gets its own settings"
+              },
+              {
+                "kind": "circle",
+                "x": 82.42,
+                "y": 52.87,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "red",
+                "text": "Pick how audio is handled:\n**Pass** keeps it untouched"
+              }
+            ]
           }
         ]
       }
@@ -299,9 +337,7 @@
       "tagline": "Every update, one click away.",
       "description": "Checks every app on your Mac for updates, Homebrew casks included, and installs them for you.",
       "tags": [
-        "AppKit",
-        "SwiftUI",
-        "Homebrew"
+        "SwiftUI"
       ],
       "note": "Fork of Latest by Max Langer",
       "repo": "https://github.com/Gionnio/upgrady",
@@ -310,7 +346,7 @@
       "icon": "assets/icons/upgrady.png",
       "shot": "assets/shots/upgrady.png",
       "page": {
-        "enabled": true,
+        "enabled": false,
         "intro": "",
         "blocks": [
           {
@@ -363,9 +399,7 @@
       "tagline": "Gmail, the Mac way.",
       "description": "A native Liquid Glass Gmail client: Apple Mail's feel with Gmail's labels, search and conversations.",
       "tags": [
-        "SwiftUI",
-        "Liquid Glass",
-        "Gmail API"
+        "SwiftUI"
       ],
       "note": "",
       "repo": "https://github.com/Gionnio/posta",
@@ -374,7 +408,7 @@
       "icon": "assets/icons/posta.png",
       "shot": "assets/shots/posta.png",
       "page": {
-        "enabled": true,
+        "enabled": false,
         "intro": "",
         "blocks": [
           {
