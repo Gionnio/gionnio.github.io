@@ -121,7 +121,7 @@
       "id": "tazzina",
       "visible": true,
       "name": "Tazzina",
-      "public": false,
+      "public": true,
       "color": "#E08A2E",
       "color2": "#A44E0E",
       "tagline": "The world needed one more caffeine app. Probably.",
@@ -133,7 +133,7 @@
       "note": "",
       "repo": "https://github.com/Gionnio/tazzina",
       "download": "",
-      "brew": "",
+      "brew": "brew install --cask gionnio/tap/tazzina",
       "icon": "assets/icons/tazzina.png",
       "shot": "assets/shots/tazzina.png"
     },
