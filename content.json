@@ -430,6 +430,62 @@
       }
     },
     {
+      "id": "tilefont",
+      "visible": true,
+      "name": "Tilefont",
+      "public": true,
+      "color": "#9BCB3C",
+      "color2": "#2E6B1F",
+      "tagline": "Any font, eight pixels at a time.",
+      "description": "Turns TrueType and OpenType fonts into font images ready for GB Studio, accents included. Pick a font, check the preview, drop it into your project.",
+      "tags": [
+        "SwiftUI"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/tilefont",
+      "download": "https://github.com/Gionnio/tilefont/releases/latest",
+      "brew": "brew install --cask gionnio/tap/tilefont",
+      "icon": "assets/icons/tilefont.png",
+      "shot": "assets/shots/tilefont.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "GB Studio ready",
+                "text": "128×112 image with 8×8 tiles, the same colours and layout as GB Studio's own fonts."
+              },
+              {
+                "title": "Accents included",
+                "text": "Extended characters 128–255 with a .json mapping, so à, é, € and friends just work."
+              },
+              {
+                "title": "Variable width",
+                "text": "Magenta markers for proportional text, or 8 px fixed width."
+              },
+              {
+                "title": "Live preview",
+                "text": "Check the grid and type a test sentence laid out the way GB Studio shows it."
+              },
+              {
+                "title": "Fit to tiles",
+                "text": "Picks the largest size that fits and warns about clipped or missing characters."
+              },
+              {
+                "title": "Straight to your project",
+                "text": "One click saves the font into the assets/fonts folder of your GB Studio project."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "id": "posta",
       "visible": true,
       "name": "Posta",
