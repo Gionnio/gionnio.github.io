@@ -5,7 +5,7 @@
   },
   "sidebar": {
     "brand": "Gionnio",
-    "subtitle": "Ideas Portfolio",
+    "subtitle": "Projects Portfolio",
     "projectsLabel": "Discover",
     "moreLabel": "More",
     "links": [
@@ -503,7 +503,7 @@
       {
         "type": "icons",
         "visible": false,
-        "cols": 2,
+        "cols": 4,
         "rows": 1
       },
       {
