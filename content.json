@@ -151,6 +151,221 @@
       }
     },
     {
+      "id": "encody",
+      "visible": true,
+      "name": "Encody",
+      "public": true,
+      "color": "#8B5CF6",
+      "color2": "#4C2F9E",
+      "tagline": "Power users still get the cockpit, just not by default.",
+      "description": "Re-encodes and remuxes your video library, keeping HDR10, HDR10+ and Dolby Vision intact. Drop, encode, done, or dive into every audio and subtitle track.",
+      "tags": [
+        "SwiftUI",
+        "FFmpeg"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/encody",
+      "download": "https://github.com/Gionnio/encody/releases/latest",
+      "brew": "brew install --cask gionnio/tap/encody",
+      "icon": "assets/icons/encody.png",
+      "shot": "assets/shots/encody.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "After years of HandBrake, I realized I only ever used three or four presets of my own, refined over time for exactly what I needed. So I wrote a small terminal tool that ran just those, and called it MediaEnc. That tool became the engine behind Encody."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Batch queue",
+                "text": "Drop files or folders, reorder, enable or skip items, import and export the queue."
+              },
+              {
+                "title": "HDR aware",
+                "text": "Detects HDR10, HDR10+, HLG and Dolby Vision and re-injects the dynamic metadata after encoding."
+              },
+              {
+                "title": "Presets you can trust",
+                "text": "Custom presets are saved only after a real test encode passes."
+              },
+              {
+                "title": "Film grain detection",
+                "text": "Measures grain on every file and suggests the right preset."
+              },
+              {
+                "title": "Benchmark & quality check",
+                "text": "Compare presets on automatic samples and check results with VMAF, XPSNR, ColorVideoVDP or SSIM."
+              },
+              {
+                "title": "Track selection",
+                "text": "Choose audio and subtitle tracks per file, with smart audio modes."
+              }
+            ]
+          },
+          {
+            "type": "annotated",
+            "visible": true,
+            "title": "How it works",
+            "image": "assets/shots/encody-page-1791121436.png",
+            "caption": "",
+            "numbered": true,
+            "notes": [
+              {
+                "kind": "arrow",
+                "x": 34.03,
+                "y": 19.24,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "yellow",
+                "text": "Drag your files here. Click it and change every setting you want."
+              },
+              {
+                "kind": "arrow",
+                "x": 18.96,
+                "y": 89.21,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "blue",
+                "text": "Standard settings for every imported files"
+              },
+              {
+                "kind": "arrow",
+                "x": 69.99,
+                "y": 30.02,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "red",
+                "text": "Change settings here!"
+              },
+              {
+                "kind": "arrow",
+                "x": 92.54,
+                "y": 7.63,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "green",
+                "text": "Do a test encode, save time!"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tilefont",
+      "visible": true,
+      "name": "Tilefont",
+      "public": true,
+      "color": "#9BCB3C",
+      "color2": "#2E6B1F",
+      "tagline": "Any font, eight pixels at a time.",
+      "description": "Turns TrueType and OpenType fonts into font images ready for GB Studio, accents included. Pick a font, check the preview, drop it into your project. Play!",
+      "tags": [
+        "SwiftUI"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/tilefont",
+      "download": "https://github.com/Gionnio/tilefont/releases/latest",
+      "brew": "brew install --cask gionnio/tap/tilefont",
+      "icon": "assets/icons/tilefont.png",
+      "shot": "assets/shots/tilefont.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "As a lifelong retro gamer and Nintendo fan, I've been having a lot of fun with GB Studio. Good assets are hard to come by, though, and the most original ones are usually the ones you make yourself. Fonts are no exception, but drawing a font image by hand, letter by letter, felt clunky. Tilefont makes that part effortless."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "GB Studio ready",
+                "text": "128×112 image with 8×8 tiles, the same colours and layout as GB Studio's own fonts."
+              },
+              {
+                "title": "Accents included",
+                "text": "Extended characters 128–255 with a .json mapping, so à, é, € and friends just work."
+              },
+              {
+                "title": "Variable width",
+                "text": "Magenta markers for proportional text, or 8 px fixed width."
+              },
+              {
+                "title": "Live preview",
+                "text": "Check the grid and type a test sentence laid out the way GB Studio shows it."
+              },
+              {
+                "title": "Fit to tiles",
+                "text": "Picks the largest size that fits and warns about clipped or missing characters."
+              },
+              {
+                "title": "Straight to your project",
+                "text": "One click saves the font into the assets/fonts folder of your GB Studio project."
+              }
+            ]
+          },
+          {
+            "type": "annotated",
+            "visible": true,
+            "title": "How it works",
+            "image": "assets/shots/tilefont-page-1791136556.png",
+            "caption": "",
+            "numbered": true,
+            "notes": [
+              {
+                "kind": "arrow",
+                "x": 21.32,
+                "y": 23.17,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "orange",
+                "text": "Drag font here!"
+              },
+              {
+                "kind": "circle",
+                "x": 30.69,
+                "y": 81.81,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "red",
+                "text": "Open your GBStudio project."
+              },
+              {
+                "kind": "arrow",
+                "x": 80.03,
+                "y": 7.19,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "blue",
+                "text": "Export it!"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "id": "ps2manager",
       "visible": true,
       "name": "PS2 Manager",
@@ -275,119 +490,6 @@
       }
     },
     {
-      "id": "encody",
-      "visible": true,
-      "name": "Encody",
-      "public": true,
-      "color": "#8B5CF6",
-      "color2": "#4C2F9E",
-      "tagline": "Power users still get the cockpit, just not by default.",
-      "description": "Re-encodes and remuxes your video library, keeping HDR10, HDR10+ and Dolby Vision intact. Drop, encode, done, or dive into every audio and subtitle track.",
-      "tags": [
-        "SwiftUI",
-        "FFmpeg"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/encody",
-      "download": "https://github.com/Gionnio/encody/releases/latest",
-      "brew": "brew install --cask gionnio/tap/encody",
-      "icon": "assets/icons/encody.png",
-      "shot": "assets/shots/encody.png",
-      "page": {
-        "enabled": true,
-        "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "After years of HandBrake, I realized I only ever used three or four presets of my own, refined over time for exactly what I needed. So I wrote a small terminal tool that ran just those, and called it MediaEnc. That tool became the engine behind Encody."
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": [
-              {
-                "title": "Batch queue",
-                "text": "Drop files or folders, reorder, enable or skip items, import and export the queue."
-              },
-              {
-                "title": "HDR aware",
-                "text": "Detects HDR10, HDR10+, HLG and Dolby Vision and re-injects the dynamic metadata after encoding."
-              },
-              {
-                "title": "Presets you can trust",
-                "text": "Custom presets are saved only after a real test encode passes."
-              },
-              {
-                "title": "Film grain detection",
-                "text": "Measures grain on every file and suggests the right preset."
-              },
-              {
-                "title": "Benchmark & quality check",
-                "text": "Compare presets on automatic samples and check results with VMAF, XPSNR, ColorVideoVDP or SSIM."
-              },
-              {
-                "title": "Track selection",
-                "text": "Choose audio and subtitle tracks per file, with smart audio modes."
-              }
-            ]
-          },
-          {
-            "type": "annotated",
-            "visible": true,
-            "title": "How it works",
-            "image": "assets/shots/encody-page-1791121436.png",
-            "caption": "",
-            "numbered": true,
-            "notes": [
-              {
-                "kind": "arrow",
-                "x": 34.03,
-                "y": 19.24,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "yellow",
-                "text": "Drag your files here. Click it and change every setting you want."
-              },
-              {
-                "kind": "arrow",
-                "x": 18.96,
-                "y": 89.21,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "blue",
-                "text": "Standard settings for every imported files"
-              },
-              {
-                "kind": "arrow",
-                "x": 69.99,
-                "y": 30.02,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "red",
-                "text": "Change settings here!"
-              },
-              {
-                "kind": "arrow",
-                "x": 92.54,
-                "y": 7.63,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "green",
-                "text": "Do a test encode, save time!"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "upgrady",
       "visible": true,
       "name": "Upgrady",
@@ -443,108 +545,6 @@
               {
                 "title": "Background checks",
                 "text": "Checks on a schedule and notifies you when updates are found."
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "tilefont",
-      "visible": true,
-      "name": "Tilefont",
-      "public": true,
-      "color": "#9BCB3C",
-      "color2": "#2E6B1F",
-      "tagline": "Any font, eight pixels at a time.",
-      "description": "Turns TrueType and OpenType fonts into font images ready for GB Studio, accents included. Pick a font, check the preview, drop it into your project. Play!",
-      "tags": [
-        "SwiftUI"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/tilefont",
-      "download": "https://github.com/Gionnio/tilefont/releases/latest",
-      "brew": "brew install --cask gionnio/tap/tilefont",
-      "icon": "assets/icons/tilefont.png",
-      "shot": "assets/shots/tilefont.png",
-      "page": {
-        "enabled": true,
-        "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "As a lifelong retro gamer and Nintendo fan, I've been having a lot of fun with GB Studio. Good assets are hard to come by, though, and the most original ones are usually the ones you make yourself. Fonts are no exception, but drawing a font image by hand, letter by letter, felt clunky. Tilefont makes that part effortless."
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": [
-              {
-                "title": "GB Studio ready",
-                "text": "128×112 image with 8×8 tiles, the same colours and layout as GB Studio's own fonts."
-              },
-              {
-                "title": "Accents included",
-                "text": "Extended characters 128–255 with a .json mapping, so à, é, € and friends just work."
-              },
-              {
-                "title": "Variable width",
-                "text": "Magenta markers for proportional text, or 8 px fixed width."
-              },
-              {
-                "title": "Live preview",
-                "text": "Check the grid and type a test sentence laid out the way GB Studio shows it."
-              },
-              {
-                "title": "Fit to tiles",
-                "text": "Picks the largest size that fits and warns about clipped or missing characters."
-              },
-              {
-                "title": "Straight to your project",
-                "text": "One click saves the font into the assets/fonts folder of your GB Studio project."
-              }
-            ]
-          },
-          {
-            "type": "annotated",
-            "visible": true,
-            "title": "How it works",
-            "image": "assets/shots/tilefont-page-1791136556.png",
-            "caption": "",
-            "numbered": true,
-            "notes": [
-              {
-                "kind": "arrow",
-                "x": 21.32,
-                "y": 23.17,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "orange",
-                "text": "Drag font here!"
-              },
-              {
-                "kind": "circle",
-                "x": 30.69,
-                "y": 81.81,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "red",
-                "text": "Open your GBStudio project."
-              },
-              {
-                "kind": "arrow",
-                "x": 80.03,
-                "y": 7.19,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "blue",
-                "text": "Export it!"
               }
             ]
           }
