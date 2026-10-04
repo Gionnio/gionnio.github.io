@@ -1,0 +1,230 @@
+{
+  "site": {
+    "title": "Gionnio — Things I made for fun",
+    "description": "Personal projects by Gionnio: small native apps for macOS. Made for my Mac"
+  },
+  "sidebar": {
+    "brand": "Gionnio",
+    "subtitle": "Made for my Mac",
+    "projectsLabel": "Projects",
+    "moreLabel": "More",
+    "links": [
+      {
+        "label": "About",
+        "url": "#about"
+      },
+      {
+        "label": "GitHub ↗",
+        "url": "https://github.com/Gionnio"
+      }
+    ],
+    "copyright": "© {year} Gionnio"
+  },
+  "hero": {
+    "kicker": "// gionnio.github.io",
+    "title": "From my Mac \nto yours.",
+    "lede": "Native Mac apps for my daily driver: video library, updates, mail, backups. Built for me, shared with everyone. Open source.",
+    "scrollHint": "Scroll to explore ↓"
+  },
+  "showcase": {
+    "showPrivate": true,
+    "labels": {
+      "open": "Open source",
+      "soon": "Coming soon",
+      "github": "View on GitHub ↗",
+      "download": "Download",
+      "noShot": "Screenshot coming soon"
+    }
+  },
+  "apps": [
+    {
+      "id": "renamy",
+      "visible": true,
+      "name": "Renamy",
+      "public": true,
+      "color": "#E2457A",
+      "color2": "#9B2C6B",
+      "tagline": "Your video library, properly named.",
+      "description": "Renames and organizes your personal video library using official TMDB metadata. Preview every change before it happens.",
+      "tags": [
+        "SwiftUI"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/renamy",
+      "download": "https://github.com/Gionnio/renamy/releases/latest",
+      "brew": "brew install --cask gionnio/tap/renamy",
+      "icon": "assets/icons/renamy.png",
+      "shot": "assets/shots/renamy.png"
+    },
+    {
+      "id": "ps2manager",
+      "visible": true,
+      "name": "PS2 Manager",
+      "public": true,
+      "color": "#5468D8",
+      "color2": "#2B358F",
+      "tagline": "Your PS2 game backups, organized.",
+      "description": "Manages the backups of the PS2 and PS1 games you own on an Open PS2 Loader USB drive or SMB share: covers, names and formats. MX4SIO the right way.",
+      "tags": [
+        "SwiftUI"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/ps2manager",
+      "download": "https://github.com/Gionnio/ps2manager/releases/latest",
+      "brew": "",
+      "icon": "assets/icons/ps2manager.png",
+      "shot": "assets/shots/ps2manager.png"
+    },
+    {
+      "id": "encody",
+      "visible": true,
+      "name": "Encody",
+      "public": false,
+      "color": "#8B5CF6",
+      "color2": "#4C2F9E",
+      "tagline": "Batch encoding that keeps HDR intact.",
+      "description": "Re-encodes and remuxes a whole video library while preserving HDR10, HDR10+ and Dolby Vision, with full control over audio and subtitle tracks.",
+      "tags": [
+        "SwiftUI",
+        "Go",
+        "FFmpeg"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/encody",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/encody.png",
+      "shot": "assets/shots/encody.png"
+    },
+    {
+      "id": "uppy",
+      "visible": true,
+      "name": "Uppy",
+      "public": false,
+      "color": "#4FA8F7",
+      "color2": "#2F5BE0",
+      "tagline": "Every app up to date, from the menu bar.",
+      "description": "Checks for updates to your Mac apps, including Homebrew, and installs them in one click.",
+      "tags": [
+        "AppKit",
+        "SwiftUI",
+        "Homebrew"
+      ],
+      "note": "Fork of Latest by Max Langer",
+      "repo": "https://github.com/Gionnio/uppy",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/uppy.png",
+      "shot": "assets/shots/uppy.png"
+    },
+    {
+      "id": "tazzina",
+      "visible": true,
+      "name": "Tazzina",
+      "public": false,
+      "color": "#E08A2E",
+      "color2": "#A44E0E",
+      "tagline": "The world needed one more caffeine app. Probably.",
+      "description": "A menu bar app with timed sessions, automatic triggers, sounds, and closed-lid mode.",
+      "tags": [
+        "SwiftUI",
+        "Menu bar"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/tazzina",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/tazzina.png",
+      "shot": "assets/shots/tazzina.png"
+    },
+    {
+      "id": "posta",
+      "visible": true,
+      "name": "Posta",
+      "public": false,
+      "color": "#3D8BF2",
+      "color2": "#1F4FC4",
+      "tagline": "Gmail, the Mac way.",
+      "description": "A native Liquid Glass Gmail client: Apple Mail's feel with Gmail's labels, search and conversations.",
+      "tags": [
+        "SwiftUI",
+        "Liquid Glass",
+        "Gmail API"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/posta",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/posta.png",
+      "shot": "assets/shots/posta.png"
+    }
+  ],
+  "bento": {
+    "anchor": "about",
+    "cards": [
+      {
+        "type": "text",
+        "visible": true,
+        "cols": 2,
+        "rows": 2,
+        "kicker": "// about",
+        "title": "Hi, I'm Gionnio.",
+        "text": "I make apps for the way I use my Mac, then polish the ones worth sharing. Placeholder text: a few lines about you, what you do and why you build these."
+      },
+      {
+        "type": "link",
+        "visible": true,
+        "cols": 2,
+        "rows": 1,
+        "icon": "github",
+        "title": "@Gionnio",
+        "text": "All public repositories",
+        "url": "https://github.com/Gionnio"
+      },
+      {
+        "type": "command",
+        "visible": true,
+        "cols": 2,
+        "rows": 1,
+        "kicker": "// homebrew",
+        "title": "Add my tap",
+        "text": "Then install any open source app with its own command.",
+        "cmd": "brew tap gionnio/tap"
+      },
+      {
+        "type": "chips",
+        "visible": true,
+        "cols": 2,
+        "rows": 1,
+        "kicker": "// stack",
+        "items": [
+          "Swift",
+          "SwiftUI",
+          "AppKit",
+          "Go",
+          "FFmpeg",
+          "Homebrew",
+          "Python"
+        ]
+      },
+      {
+        "type": "icons",
+        "visible": true,
+        "cols": 2,
+        "rows": 1
+      },
+      {
+        "type": "text",
+        "visible": true,
+        "cols": 4,
+        "rows": 1,
+        "kicker": "// contact",
+        "title": "Say hi",
+        "text": "Placeholder: email, socials or \"open an issue on GitHub\"."
+      }
+    ]
+  },
+  "footer": {
+    "text": "// EOF"
+  }
+}
