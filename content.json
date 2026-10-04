@@ -76,6 +76,26 @@
       "shot": "assets/shots/ps2manager.png"
     },
     {
+      "id": "tazzina",
+      "visible": true,
+      "name": "Tazzina",
+      "public": true,
+      "color": "#E08A2E",
+      "color2": "#A44E0E",
+      "tagline": "The world needed one more caffeine app. Probably.",
+      "description": "A menu bar app with timed sessions, automatic triggers, sounds, and closed-lid mode.",
+      "tags": [
+        "SwiftUI",
+        "Menu bar"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/tazzina",
+      "download": "",
+      "brew": "brew install --cask gionnio/tap/tazzina",
+      "icon": "assets/icons/tazzina-1791099638.png",
+      "shot": "assets/shots/tazzina.png"
+    },
+    {
       "id": "encody",
       "visible": true,
       "name": "Encody",
@@ -116,26 +136,6 @@
       "brew": "",
       "icon": "assets/icons/uppy.png",
       "shot": "assets/shots/uppy.png"
-    },
-    {
-      "id": "tazzina",
-      "visible": true,
-      "name": "Tazzina",
-      "public": true,
-      "color": "#E08A2E",
-      "color2": "#A44E0E",
-      "tagline": "The world needed one more caffeine app. Probably.",
-      "description": "A menu bar app with timed sessions, automatic triggers, sounds, and closed-lid mode.",
-      "tags": [
-        "SwiftUI",
-        "Menu bar"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/tazzina",
-      "download": "",
-      "brew": "brew install --cask gionnio/tap/tazzina",
-      "icon": "assets/icons/tazzina-1791099638.png",
-      "shot": "assets/shots/tazzina.png"
     },
     {
       "id": "posta",
