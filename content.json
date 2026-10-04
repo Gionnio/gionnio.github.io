@@ -96,6 +96,46 @@
                 "text": "Revert the last rename or move, including the folders it created."
               }
             ]
+          },
+          {
+            "type": "annotated",
+            "visible": true,
+            "title": "How it works",
+            "image": "assets/shots/renamy-page-1791134847.png",
+            "caption": "",
+            "numbered": true,
+            "notes": [
+              {
+                "kind": "circle",
+                "x": 49.6,
+                "y": 48.24,
+                "w": 18.5,
+                "h": 19,
+                "side": "auto",
+                "color": "blue",
+                "text": "Drag n wait"
+              },
+              {
+                "kind": "circle",
+                "x": 85.58,
+                "y": 8.23,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "red",
+                "text": "Make corrections, search for disambiguation, press play"
+              },
+              {
+                "kind": "arrow",
+                "x": 22.99,
+                "y": 8.12,
+                "w": 6,
+                "h": 8,
+                "side": "auto",
+                "color": "yellow",
+                "text": "Start from scratch."
+              }
+            ]
           }
         ]
       }
