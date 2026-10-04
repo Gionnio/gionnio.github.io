@@ -207,7 +207,8 @@
     });
     parent.postMessage({ type: "preview-ready" }, location.origin);
   } else {
-    fetch("content.json", { cache: "no-cache" })
+    // GitHub Pages caches files for up to 10 minutes: always ask for fresh content
+    fetch(`content.json?v=${Date.now()}`, { cache: "no-store" })
       .then((r) => r.json())
       .then(render)
       .then(() => {
