@@ -113,27 +113,21 @@
                 "h": 8,
                 "side": "auto",
                 "color": "yellow",
-                "text": "Start from scratch."
+                "text": "Start from scratch.",
+                "lx": -13.59,
+                "ly": 27.9
               },
               {
                 "kind": "arrow",
-                "x": 84.15,
-                "y": 7.66,
+                "x": 84.85,
+                "y": 9.95,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "red",
-                "text": "Search for disambiguations."
-              },
-              {
-                "kind": "arrow",
-                "x": 90.33,
-                "y": 7.63,
-                "w": 14,
-                "h": 10,
-                "side": "auto",
-                "color": "green",
-                "text": "Rename!"
+                "text": "Search for disambiguations.",
+                "lx": 109.99,
+                "ly": 30.08
               },
               {
                 "kind": "circle",
@@ -143,7 +137,9 @@
                 "h": 22.5,
                 "side": "auto",
                 "color": "blue",
-                "text": "Drag n Drop!"
+                "text": "Drag n Drop!",
+                "lx": 113.3,
+                "ly": 78.14
               }
             ]
           }
@@ -220,13 +216,15 @@
             "notes": [
               {
                 "kind": "arrow",
-                "x": 34.03,
-                "y": 19.24,
+                "x": 31.9,
+                "y": 29.47,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "yellow",
-                "text": "Drag your files here. Click it and change every setting you want."
+                "text": "Drag your files\nor folder!",
+                "lx": -16.79,
+                "ly": 57.1
               },
               {
                 "kind": "arrow",
@@ -236,27 +234,33 @@
                 "h": 10,
                 "side": "auto",
                 "color": "blue",
-                "text": "Standard settings for every imported files"
+                "text": "Default settings for every imported files",
+                "lx": -11.31,
+                "ly": 110.58
               },
               {
                 "kind": "arrow",
                 "x": 69.99,
-                "y": 30.02,
+                "y": 29.05,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "red",
-                "text": "Change settings here!"
+                "text": "Change settings here!",
+                "lx": 116.49,
+                "ly": 70.18
               },
               {
                 "kind": "arrow",
-                "x": 92.54,
-                "y": 7.63,
+                "x": 4.37,
+                "y": 17.5,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "green",
-                "text": "Do a test encode, save time!"
+                "text": "Do a benchmark, save time!",
+                "lx": -13.57,
+                "ly": -8.67
               }
             ]
           }
@@ -338,27 +342,31 @@
                 "h": 10,
                 "side": "auto",
                 "color": "orange",
-                "text": "Drag font here!"
+                "text": "Drag font!"
               },
               {
                 "kind": "circle",
-                "x": 30.69,
-                "y": 81.81,
+                "x": 31.69,
+                "y": 82.02,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "red",
-                "text": "Open your GBStudio project."
+                "text": "Open your\nGBStudio project.",
+                "lx": -18.32,
+                "ly": 81.38
               },
               {
                 "kind": "arrow",
-                "x": 80.03,
-                "y": 7.19,
+                "x": 81.39,
+                "y": 4.96,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "blue",
-                "text": "Export it!"
+                "text": "Export it!",
+                "lx": 100.16,
+                "ly": -8.1
               }
             ]
           }

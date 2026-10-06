@@ -132,47 +132,93 @@
   const escapeHTML = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const noteHTML = (s) => escapeHTML(s).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br>");
 
-  /* ---------- Site: lay out an annotated figure ---------- */
+  /* ---------- Lay out marks and labels (site and editor) ---------- */
+
+  // Point where a line from the centre of rect r towards p leaves the rect (with a little padding)
+  const rectExit = (r, p, pad = 6) => {
+    const cx = r.x + r.w / 2, cy = r.y + r.h / 2, dx = p[0] - cx, dy = p[1] - cy;
+    const sx = dx ? (r.w / 2 + pad) / Math.abs(dx) : Infinity, sy = dy ? (r.h / 2 + pad) / Math.abs(dy) : Infinity;
+    const k = Math.min(sx, sy, 1);
+    return [cx + dx * k, cy + dy * k];
+  };
+
+  /**
+   * Draw the marks and the handwritten labels of `notes` inside `stage` (positioned), around `img`.
+   * A label goes where the note says (lx/ly, percent of the image, may be outside it) or, without
+   * them, in the side gutters, stacked. Returns { box, marks, labels } for the editor.
+   */
+  function render(stage, img, notes, { numbered = false, seed = 1, filterId = "crayon", labels = true } = {}) {
+    stage.querySelectorAll(":scope > .ann-svg, :scope > .ann-label").forEach((x) => x.remove());
+    stage.style.minHeight = "";
+    const sr = stage.getBoundingClientRect(), ir = img.getBoundingClientRect();
+    const box = { x: ir.left - sr.left, y: ir.top - sr.top, w: ir.width, h: ir.height };
+    const svg = el("svg", { class: "ann-svg", width: sr.width, height: sr.height, viewBox: `0 0 ${sr.width} ${sr.height}` }, stage);
+    const marks = drawMarks(svg, notes, box, { numbered, seed, filterId });
+    const out = { box, marks, labels: [] };
+    if (!labels) return out;
+
+    const font = Math.max(14, Math.min(22, box.w * 0.034));
+    const make = (m, cls) => {
+      const label = document.createElement("div");
+      label.className = `ann-label ${cls}`;
+      label.dataset.i = m.i;
+      label.style.color = m.col;
+      label.style.fontSize = `${font}px`;
+      label.innerHTML = `${numbered ? `<b>${m.i + 1}.</b> ` : ""}${noteHTML(m.note.text) || "&nbsp;"}`;
+      stage.appendChild(label);
+      out.labels[m.i] = label;
+      return label;
+    };
+    let bottom = 0;
+
+    // Labels placed by hand: centred on (lx, ly)
+    marks.filter((m) => Number.isFinite(+m.note.lx) && m.note.lx !== "" && m.note.lx != null).forEach((m) => {
+      const label = make(m, "free");
+      label.style.maxWidth = `${Math.max(120, box.w * 0.36)}px`;
+      const px = box.x + (box.w * m.note.lx) / 100, py = box.y + (box.h * m.note.ly) / 100;
+      const w = label.offsetWidth, hgt = label.offsetHeight;
+      const r = { x: px - w / 2, y: py - hgt / 2, w, h: hgt };
+      label.style.left = `${r.x}px`;
+      label.style.top = `${r.y}px`;
+      label.style.textAlign = px < m.cx - 10 ? "right" : px > m.cx + 10 ? "left" : "center";
+      bottom = Math.max(bottom, r.y + hgt);
+      connect(svg, rectExit(r, m.edge([r.x + w / 2, r.y + hgt / 2])), m, filterId);
+    });
+
+    // Automatic labels in the side gutters, stacked so they never overlap
+    const gutter = Math.max(60, box.x - 18);
+    const auto = marks.filter((m) => !(Number.isFinite(+m.note.lx) && m.note.lx !== "" && m.note.lx != null));
+    for (const side of ["left", "right"]) {
+      const mine = auto.filter((m) => (m.note.side === side) || (!["left", "right"].includes(m.note.side) && (side === "left") === (+m.note.x < 50)));
+      let last = -Infinity;
+      mine.sort((a, b) => a.cy - b.cy).forEach((m) => {
+        const label = make(m, side);
+        label.style.width = `${gutter}px`;
+        const hgt = label.offsetHeight;
+        const top = Math.max(m.cy - hgt / 2, last + 12, 0);
+        label.style.top = `${top}px`;
+        label.style[side] = "0px";
+        last = top + hgt;
+        const anchorX = side === "left" ? gutter + 4 : sr.width - gutter - 4;
+        connect(svg, [anchorX, top + Math.min(hgt / 2, font * 0.7)], m, filterId);
+      });
+      bottom = Math.max(bottom, last);
+    }
+    if (bottom > stage.clientHeight) stage.style.minHeight = `${bottom + 8}px`;
+    return out;
+  }
+
+  /* ---------- Site ---------- */
 
   let figureCount = 0;
   function layout(fig) {
     const stage = fig.querySelector(".ann-stage"), img = stage.querySelector("img");
     if (!img.complete || !img.naturalWidth) return img.addEventListener("load", () => layout(fig), { once: true });
     const notes = JSON.parse(fig.dataset.notes || "[]");
-    const numbered = fig.hasAttribute("data-numbered");
     const narrow = matchMedia("(max-width: 900px)").matches;
     fig.dataset.id ??= `crayon-${++figureCount}`;
-    stage.querySelectorAll(".ann-svg, .ann-label").forEach((x) => x.remove());
-    stage.style.minHeight = "";
-
-    const sr = stage.getBoundingClientRect(), ir = img.getBoundingClientRect();
-    const box = { x: ir.left - sr.left, y: ir.top - sr.top, w: ir.width, h: ir.height };
-    const svg = el("svg", { class: "ann-svg", width: sr.width, height: sr.height, viewBox: `0 0 ${sr.width} ${sr.height}` }, stage);
-    const marks = drawMarks(svg, notes, box, { numbered: numbered || narrow, seed: hash(fig.dataset.seed || ""), filterId: fig.dataset.id });
-    if (narrow) return; // On phones the notes are listed under the image
-
-    // Labels in the side gutters, stacked so they never overlap
-    const gutter = Math.max(0, box.x - 18);
-    for (const side of ["left", "right"]) {
-      const mine = marks.filter((m) => (m.note.side === side) || (!["left", "right"].includes(m.note.side) && (side === "left") === (+m.note.x < 50)));
-      let bottom = -Infinity;
-      mine.sort((a, b) => a.cy - b.cy).forEach((m) => {
-        const label = document.createElement("div");
-        label.className = `ann-label ${side}`;
-        label.style.color = m.col;
-        label.style.width = `${gutter}px`;
-        label.innerHTML = `${numbered ? `<b>${m.i + 1}.</b> ` : ""}${noteHTML(m.note.text)}`;
-        stage.appendChild(label);
-        const hgt = label.offsetHeight;
-        const top = Math.max(m.cy - hgt / 2, bottom + 12, 0);
-        label.style.top = `${top}px`;
-        label.style[side] = "0px";
-        bottom = top + hgt;
-        const anchorX = side === "left" ? gutter + 4 : sr.width - gutter - 4;
-        connect(svg, [anchorX, top + Math.min(hgt / 2, 14)], m, fig.dataset.id);
-      });
-      if (bottom > stage.clientHeight) stage.style.minHeight = `${bottom + 8}px`;
-    }
+    // On phones the marks are numbered and the notes are listed under the image
+    render(stage, img, notes, { numbered: fig.hasAttribute("data-numbered") || narrow, seed: hash(fig.dataset.seed || ""), filterId: fig.dataset.id, labels: !narrow });
   }
 
   let timer;
@@ -180,5 +226,5 @@
   addEventListener("resize", () => { clearTimeout(timer); timer = setTimeout(layoutAll, 120); });
   document.fonts?.ready.then(() => layoutAll());
 
-  window.Sketch = { COLORS, color, hash, drawMarks, connect, layout, layoutAll, noteHTML };
+  window.Sketch = { COLORS, color, hash, drawMarks, connect, render, layout, layoutAll, noteHTML };
 })();

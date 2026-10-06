@@ -211,6 +211,7 @@ main { margin-left: var(--sidebar); }
 .sketch-num { font: 600 15px "Caveat", cursive; fill: #fff; }
 .ann-label { position: absolute; font: 600 20px/1.08 "Caveat", "Bradley Hand", cursive; }
 .ann-label.left { text-align: right; }
+.ann-label.free { width: max-content; }
 .ann-label b { font-weight: 600; }
 .ann-list { display: none; }
 .annotated figcaption { font-size: 13px; color: var(--muted); text-align: center; }
