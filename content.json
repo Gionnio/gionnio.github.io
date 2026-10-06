@@ -23,7 +23,7 @@
   "hero": {
     "kicker": "// gionnio.github.io",
     "title": "From my Mac \nto yours.",
-    "lede": "Native Mac apps for my daily driver, plus a little tool for the browser: video library, updates, mail, backups, ROM patches. Built for me, shared with everyone. Open source.",
+    "lede": "Native Mac apps and project for my daily driver: video library, updates, backups, retrogame. Built for me, shared with everyone. Open source.",
     "scrollHint": "Scroll to explore ↓"
   },
   "showcase": {
@@ -381,8 +381,8 @@
       "public": true,
       "color": "#2DD4BF",
       "color2": "#0E7490",
-      "tagline": "Patched in your browser. Uploaded nowhere.",
-      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Runs on any device, nothing to install.",
+      "tagline": "ROM Patcher straight to your browser.",
+      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Nothing to install.",
       "tags": [
         "Rust",
         "WebAssembly"
