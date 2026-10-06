@@ -33,6 +33,7 @@
       "soon": "Coming soon",
       "github": "View on GitHub ↗",
       "download": "Download",
+      "web": "Open app",
       "noShot": "Screenshot coming soon",
       "more": "Learn more →"
     }
@@ -371,6 +372,32 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "id": "tiny-little-patcher",
+      "visible": true,
+      "name": "Tiny Little Patcher",
+      "public": true,
+      "color": "#2DD4BF",
+      "color2": "#0E7490",
+      "tagline": "Patched in your browser. Uploaded nowhere.",
+      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Runs on any device, nothing to install.",
+      "tags": [
+        "Rust",
+        "WebAssembly"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/tiny-little-patcher",
+      "web": "patcher/",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/tiny-little-patcher.png",
+      "shot": "assets/shots/tiny-little-patcher.png",
+      "page": {
+        "enabled": false,
+        "intro": "",
+        "blocks": []
       }
     },
     {

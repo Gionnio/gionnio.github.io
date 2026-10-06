@@ -55,8 +55,9 @@
     ? `<span class="badge open">${esc(L.open)}</span>`
     : `<span class="badge soon">${esc(L.soon)}</span>`;
 
-  const actionsHTML = (a, L) => a.public && (a.repo || a.download) ? `<div class="actions">
-      ${a.repo ? `<a class="btn" href="${esc(a.repo)}"${external(a.repo)}>${esc(L.github)}</a>` : ""}
+  const actionsHTML = (a, L) => a.public && (a.repo || a.download || a.web) ? `<div class="actions">
+      ${a.web ? `<a class="btn" href="${esc(a.web)}"${external(a.web)}>${esc(L.web || "Open")}</a>` : ""}
+      ${a.repo ? `<a class="btn${a.web ? " ghost" : ""}" href="${esc(a.repo)}"${external(a.repo)}>${esc(L.github)}</a>` : ""}
       ${a.download ? `<a class="btn ghost" href="${esc(a.download)}"${external(a.download)}>${esc(L.download)}</a>` : ""}
     </div>` : "";
 

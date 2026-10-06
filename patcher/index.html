@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny Little Patcher</title>
+  <meta name="description" content="Apply IPS, UPS and BPS patches to your ROMs, right in your browser. Nothing is uploaded.">
+  <meta property="og:title" content="Tiny Little Patcher">
+  <meta property="og:description" content="Apply IPS, UPS and BPS patches to your ROMs, right in your browser.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="./app-b5bbef704aca1f46.css" integrity="sha384-NTAsZrBO2sIiNNfg5ivk79coD5aWCR8Q/kjQ5iSc669WRD2jGuWduol9QDdjDQT1"/>
+  
+  
+<script type="module">
+import init, * as bindings from './tiny-little-patcher-5dc30dd04aa1e2aa.js';
+const wasm = await init({ module_or_path: './tiny-little-patcher-5dc30dd04aa1e2aa_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  <script>
+    // Theme before the app loads, so the page never flashes the wrong colors
+    try {
+      const t = localStorage.getItem("tlp.theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+<link rel="modulepreload" href="./tiny-little-patcher-5dc30dd04aa1e2aa.js" crossorigin="anonymous" integrity="sha384-k0Q1UdkYFswpVfZWwIYFZD/1nNlWmCq0is32ZHbDYpgQnMBa5Rr/tBbcGBPHBX/B"><link rel="preload" href="./tiny-little-patcher-5dc30dd04aa1e2aa_bg.wasm" crossorigin="anonymous" integrity="sha384-95kfdiXHZYDPRCyuTtjeQLUl8sPgXzCdUIolSCuP0zU/tuu/1cYqKPct1FTl5GbL" as="fetch" type="application/wasm"></head>
+<body>
+  <noscript><p class="noscript">Tiny Little Patcher needs JavaScript and WebAssembly.</p></noscript>
+</body>
+</html>
