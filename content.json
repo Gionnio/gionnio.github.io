@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Gionnio — Things I made for fun",
-    "description": "Personal projects by Gionnio: small native apps for macOS. Made for my Mac"
+    "description": "Personal projects by Gionnio: small native apps for macOS and a web tool. Made for my Mac"
   },
   "sidebar": {
     "brand": "Gionnio",
@@ -23,7 +23,7 @@
   "hero": {
     "kicker": "// gionnio.github.io",
     "title": "From my Mac \nto yours.",
-    "lede": "Native Mac apps for my daily driver: video library, updates, mail, backups. Built for me, shared with everyone. Open source.",
+    "lede": "Native Mac apps for my daily driver, plus a little tool for the browser: video library, updates, mail, backups, ROM patches. Built for me, shared with everyone. Open source.",
     "scrollHint": "Scroll to explore ↓"
   },
   "showcase": {
