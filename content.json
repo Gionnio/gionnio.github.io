@@ -375,32 +375,6 @@
       }
     },
     {
-      "id": "tiny-little-patcher",
-      "visible": true,
-      "name": "Tiny Little Patcher",
-      "public": true,
-      "color": "#2DD4BF",
-      "color2": "#0E7490",
-      "tagline": "ROM Patcher straight to your browser.",
-      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Nothing to install.",
-      "tags": [
-        "Rust",
-        "WebAssembly"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/tiny-little-patcher",
-      "web": "patcher/",
-      "download": "",
-      "brew": "",
-      "icon": "assets/icons/tiny-little-patcher.png",
-      "shot": "assets/shots/tiny-little-patcher.png",
-      "page": {
-        "enabled": false,
-        "intro": "",
-        "blocks": []
-      }
-    },
-    {
       "id": "ps2manager",
       "visible": true,
       "name": "PS2 Manager",
@@ -456,6 +430,68 @@
               {
                 "title": "Tools",
                 "text": "Rename, export, convert back to BIN/CUE, defragment and delete, with a queue and progress."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "upgrady",
+      "visible": true,
+      "name": "Upgrady",
+      "public": true,
+      "color": "#4FA8F7",
+      "color2": "#2F5BE0",
+      "tagline": "Every update, one click away.",
+      "description": "Checks every app on your Mac for updates, Homebrew casks included, and installs them for you.",
+      "tags": [
+        "SwiftUI"
+      ],
+      "note": "Fork of Latest by Max Langer",
+      "repo": "https://github.com/Gionnio/upgrady",
+      "download": "https://github.com/Gionnio/upgrady/releases/latest",
+      "brew": "brew install --cask gionnio/tap/upgrady",
+      "icon": "assets/icons/upgrady.png",
+      "shot": "assets/shots/upgrady-1791136930.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "MacUpdater started giving me trouble on macOS 27. I'd tried Latest years earlier and loved it, but it was missing a few things I relied on. Updaty takes the best of both: exactly what I needed, nothing more."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Menu bar app",
+                "text": "Lives in the menu bar with the number of available updates, and opens at login silently."
+              },
+              {
+                "title": "Homebrew integration",
+                "text": "Apps installed with Homebrew are updated through `brew`, so it always stays in sync."
+              },
+              {
+                "title": "Third-party taps",
+                "text": "Reads every installed tap, including personal ones like `gionnio/tap`."
+              },
+              {
+                "title": "Release notes",
+                "text": "Shows the GitHub release notes of every version you are skipping."
+              },
+              {
+                "title": "Adopt manual installs",
+                "text": "Links apps installed by hand to their Homebrew cask."
+              },
+              {
+                "title": "Background checks",
+                "text": "Checks on a schedule and notifies you when updates are found."
               }
             ]
           }
@@ -525,65 +561,29 @@
       }
     },
     {
-      "id": "upgrady",
+      "id": "tiny-little-patcher",
       "visible": true,
-      "name": "Upgrady",
+      "name": "Tiny Little Patcher",
       "public": true,
-      "color": "#4FA8F7",
-      "color2": "#2F5BE0",
-      "tagline": "Every update, one click away.",
-      "description": "Checks every app on your Mac for updates, Homebrew casks included, and installs them for you.",
+      "color": "#2DD4BF",
+      "color2": "#0E7490",
+      "tagline": "ROM Patcher straight to your browser.",
+      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Nothing to install.",
       "tags": [
-        "SwiftUI"
+        "Rust",
+        "WebAssembly"
       ],
-      "note": "Fork of Latest by Max Langer",
-      "repo": "https://github.com/Gionnio/upgrady",
-      "download": "https://github.com/Gionnio/upgrady/releases/latest",
-      "brew": "brew install --cask gionnio/tap/upgrady",
-      "icon": "assets/icons/upgrady.png",
-      "shot": "assets/shots/upgrady-1791136930.png",
+      "note": "",
+      "repo": "https://github.com/Gionnio/tiny-little-patcher",
+      "web": "patcher/",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/tiny-little-patcher.png",
+      "shot": "assets/shots/tiny-little-patcher.png",
       "page": {
-        "enabled": true,
+        "enabled": false,
         "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "MacUpdater started giving me trouble on macOS 27. I'd tried Latest years earlier and loved it, but it was missing a few things I relied on. Updaty takes the best of both: exactly what I needed, nothing more."
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": [
-              {
-                "title": "Menu bar app",
-                "text": "Lives in the menu bar with the number of available updates, and opens at login silently."
-              },
-              {
-                "title": "Homebrew integration",
-                "text": "Apps installed with Homebrew are updated through `brew`, so it always stays in sync."
-              },
-              {
-                "title": "Third-party taps",
-                "text": "Reads every installed tap, including personal ones like `gionnio/tap`."
-              },
-              {
-                "title": "Release notes",
-                "text": "Shows the GitHub release notes of every version you are skipping."
-              },
-              {
-                "title": "Adopt manual installs",
-                "text": "Links apps installed by hand to their Homebrew cask."
-              },
-              {
-                "title": "Background checks",
-                "text": "Checks on a schedule and notifies you when updates are found."
-              }
-            ]
-          }
-        ]
+        "blocks": []
       }
     },
     {
