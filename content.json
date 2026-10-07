@@ -440,7 +440,7 @@
       "id": "upgrady",
       "visible": true,
       "name": "Upgrady",
-      "public": true,
+      "public": false,
       "color": "#4FA8F7",
       "color2": "#2F5BE0",
       "tagline": "Every update, one click away.",
@@ -448,10 +448,10 @@
       "tags": [
         "SwiftUI"
       ],
-      "note": "Fork of Latest by Max Langer",
+      "note": "",
       "repo": "https://github.com/Gionnio/upgrady",
-      "download": "https://github.com/Gionnio/upgrady/releases/latest",
-      "brew": "brew install --cask gionnio/tap/upgrady",
+      "download": "",
+      "brew": "",
       "icon": "assets/icons/upgrady.png",
       "shot": "assets/shots/upgrady-1791136930.png",
       "page": {
@@ -462,7 +462,7 @@
             "type": "quote",
             "visible": true,
             "title": "// why I made it",
-            "text": "MacUpdater started giving me trouble on macOS 27. I'd tried Latest years earlier and loved it, but it was missing a few things I relied on. Updaty takes the best of both: exactly what I needed, nothing more."
+            "text": "MacUpdater started giving me trouble on macOS 27, and none of the alternatives handled Homebrew the way I wanted. So I built my own: exactly what I needed, nothing more."
           },
           {
             "type": "features",
