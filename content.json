@@ -440,20 +440,20 @@
       "id": "upgrady",
       "visible": true,
       "name": "Upgrady",
-      "public": false,
+      "public": true,
       "color": "#4FA8F7",
       "color2": "#2F5BE0",
       "tagline": "Every update, one click away.",
-      "description": "Checks every app on your Mac for updates, Homebrew casks included, and installs them for you.",
+      "description": "Checks every app on your Mac for updates, Sparkle, Homebrew casks and App Store apps included, and installs them for you.",
       "tags": [
         "SwiftUI"
       ],
       "note": "",
       "repo": "https://github.com/Gionnio/upgrady",
-      "download": "",
-      "brew": "",
+      "download": "https://github.com/Gionnio/upgrady/releases/latest",
+      "brew": "brew install --cask gionnio/tap/upgrady",
       "icon": "assets/icons/upgrady.png",
-      "shot": "assets/shots/upgrady-1791136930.png",
+      "shot": "assets/shots/upgrady.png",
       "page": {
         "enabled": true,
         "intro": "",
@@ -471,11 +471,11 @@
             "items": [
               {
                 "title": "Menu bar app",
-                "text": "Lives in the menu bar with the number of available updates, and opens at login silently."
+                "text": "Lives in the menu bar with the number of available updates: update one app or all of them in one click, with progress."
               },
               {
-                "title": "Homebrew integration",
-                "text": "Apps installed with Homebrew are updated through `brew`, so it always stays in sync."
+                "title": "Sparkle, Homebrew & App Store",
+                "text": "Sparkle apps are updated with their own feed and signature, casks through `brew`, App Store apps (iPhone and iPad ones too) are checked."
               },
               {
                 "title": "Third-party taps",
@@ -483,15 +483,15 @@
               },
               {
                 "title": "Release notes",
-                "text": "Shows the GitHub release notes of every version you are skipping."
+                "text": "Shows the release notes of every version you are skipping."
               },
               {
                 "title": "Adopt manual installs",
                 "text": "Links apps installed by hand to their Homebrew cask."
               },
               {
-                "title": "Background checks",
-                "text": "Checks on a schedule and notifies you when updates are found."
+                "title": "Always current",
+                "text": "Checks in the background, notifies you, and refreshes by itself when apps are installed or removed."
               }
             ]
           }
