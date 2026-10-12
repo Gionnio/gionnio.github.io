@@ -647,6 +647,69 @@
           }
         ]
       }
+    },
+    {
+      "id": "bozza",
+      "visible": true,
+      "name": "Bozza",
+      "public": false,
+      "color": "#34D399",
+      "color2": "#047857",
+      "tagline": "Type first, save whenever.",
+      "description": "A fast, native text and code editor with tabs, sessions that keep your unsaved drafts, syntax colors, regex search and macros.",
+      "tags": [
+        "SwiftUI",
+        "AppKit"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/bozza",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/bozza.png",
+      "shot": "assets/shots/bozza.png",
+      "page": {
+        "enabled": false,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "On Windows I lived in Notepad++: open it, paste something, close it, and find everything still there the next day. I wanted that same habit on my Mac, in an app that looks like it belongs there."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Never asks to save",
+                "text": "Quit whenever you want: open files and unsaved drafts, even untitled ones, come back as you left them."
+              },
+              {
+                "title": "40 languages",
+                "text": "Syntax colors, seven themes and an outline of functions, classes and headings."
+              },
+              {
+                "title": "Find everywhere",
+                "text": "Normal, extended and regex search in the document, in every open tab or in a whole folder."
+              },
+              {
+                "title": "Encodings",
+                "text": "Detects 22 encodings and any line ending, and converts between them."
+              },
+              {
+                "title": "Line tools",
+                "text": "Sort, deduplicate, trim, join, move, duplicate, comment and change case from one menu."
+              },
+              {
+                "title": "Macros",
+                "text": "Record what you type and the commands you use, then replay it once or a thousand times."
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "bento": {
