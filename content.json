@@ -649,9 +649,9 @@
       }
     },
     {
-      "id": "bozza",
+      "id": "taccuino",
       "visible": true,
-      "name": "Bozza",
+      "name": "Taccuino",
       "public": false,
       "color": "#34D399",
       "color2": "#047857",
@@ -662,11 +662,11 @@
         "AppKit"
       ],
       "note": "",
-      "repo": "https://github.com/Gionnio/bozza",
+      "repo": "https://github.com/Gionnio/taccuino",
       "download": "",
       "brew": "",
-      "icon": "assets/icons/bozza.png",
-      "shot": "assets/shots/bozza.png",
+      "icon": "assets/icons/taccuino.png",
+      "shot": "assets/shots/taccuino.png",
       "page": {
         "enabled": false,
         "intro": "",
