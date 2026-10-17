@@ -47,7 +47,7 @@
       "color": "#E2457A",
       "color2": "#9B2C6B",
       "tagline": "Your video library, properly named.",
-      "description": "Renames and organizes your personal video library using official TMDB metadata. Preview every change before it happens.",
+      "description": "Renames and organizes your personal video library using official TMDB metadata, anime included. Preview every change before it happens.",
       "tags": [
         "SwiftUI"
       ],
@@ -74,15 +74,19 @@
             "items": [
               {
                 "title": "Smart title detection",
-                "text": "Finds the movie or show title in messy filenames by anchoring on the year or the season number."
+                "text": "Finds the movie or show title in messy filenames by anchoring on the year, the season or the episode number, even when it is only in the folder name."
               },
               {
                 "title": "Official metadata",
-                "text": "Titles and years come from TMDB, so every file gets the same, correct name."
+                "text": "Titles, years and posters come from TMDB, so every file gets the same, correct name."
               },
               {
                 "title": "TV series",
-                "text": "Understands `SxxExx` episodes and asks once for a whole season when a title is ambiguous."
+                "text": "Understands `SxxExx`, `1x02`, absolute numbering and `Season 1` folders, and asks once for a whole series when a title is ambiguous."
+              },
+              {
+                "title": "Anime",
+                "text": "Anime-style names are matched on AniList and converted to the TMDB title and numbering that Plex and Jellyfin read."
               },
               {
                 "title": "Plex, Jellyfin & Emby",
@@ -102,45 +106,45 @@
             "type": "annotated",
             "visible": true,
             "title": "How it works",
-            "image": "assets/shots/renamy-page-1791135609.png",
+            "image": "assets/shots/renamy-page-1792261362.png",
             "caption": "",
             "numbered": true,
             "notes": [
               {
                 "kind": "arrow",
-                "x": 22.99,
-                "y": 8.12,
+                "x": 26.9,
+                "y": 8.8,
                 "w": 6,
                 "h": 8,
                 "side": "auto",
                 "color": "yellow",
-                "text": "Start from scratch.",
+                "text": "Start from a folder, or drop files in.",
                 "lx": -13.59,
-                "ly": 27.9
+                "ly": 4
+              },
+              {
+                "kind": "circle",
+                "x": 14.5,
+                "y": 26,
+                "w": 19,
+                "h": 22,
+                "side": "auto",
+                "color": "blue",
+                "text": "Filter by status and kind.",
+                "lx": -13.59,
+                "ly": 62
               },
               {
                 "kind": "arrow",
-                "x": 84.85,
-                "y": 9.95,
+                "x": 78,
+                "y": 26,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "red",
-                "text": "Search for disambiguations.",
+                "text": "Pick the right title when there are several.",
                 "lx": 109.99,
                 "ly": 30.08
-              },
-              {
-                "kind": "circle",
-                "x": 50.26,
-                "y": 49.15,
-                "w": 25.5,
-                "h": 22.5,
-                "side": "auto",
-                "color": "blue",
-                "text": "Drag n Drop!",
-                "lx": 113.3,
-                "ly": 78.14
               }
             ]
           }
