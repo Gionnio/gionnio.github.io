@@ -597,7 +597,7 @@
       "public": false,
       "color": "#EF4444",
       "color2": "#B91C1C",
-      "tagline": "Your cartridges, safe on your Mac.",
+      "tagline": "Childhood memories, safe on your Mac.",
       "description": "A native app for the GBFlash and Submodule GB01 readers: back up the Game Boy, Game Boy Color and Game Boy Advance cartridges you own, save and restore game saves with verification at every step, browse Game Boy Camera photos and play right away.",
       "tags": [
         "SwiftUI",
