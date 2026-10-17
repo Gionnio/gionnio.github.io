@@ -187,7 +187,11 @@
               },
               {
                 "title": "HDR aware",
-                "text": "Detects HDR10, HDR10+, HLG and Dolby Vision and re-injects the dynamic metadata after encoding."
+                "text": "Detects HDR10, HDR10+, HLG and Dolby Vision and re-injects the dynamic metadata after encoding, even when cropping or downscaling."
+              },
+              {
+                "title": "Checked output",
+                "text": "Every finished file is read back: a truncated encode never passes as done, and missing HDR metadata or tracks are flagged."
               },
               {
                 "title": "Presets you can trust",
