@@ -615,9 +615,22 @@
       "icon": "assets/icons/dumpboy.png",
       "shot": "assets/shots/dumpboy-1792256069.png",
       "page": {
-        "enabled": false,
+        "enabled": true,
         "intro": "",
-        "blocks": []
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "Who hasn’t picked up a Game Boy cartridge, eager to revisit an old save file filled with memories and joy, only to discover that, over the years, the battery has died and the save file is gone? I wasn’t satisfied with the software for the most common flashers on the market for macOS, so I created this tool, which has the features I was looking for. My old games, now always with me."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": []
+          }
+        ]
       }
     },
     {
