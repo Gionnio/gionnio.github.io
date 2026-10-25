@@ -212,6 +212,10 @@
               {
                 "title": "Track selection",
                 "text": "Choose audio and subtitle tracks per file, with smart audio modes."
+              },
+              {
+                "title": "Signed files",
+                "text": "Finished files carry the preset they were made with, so your media server can tell them apart. Export your presets and rules as a conformity profile."
               }
             ]
           },
