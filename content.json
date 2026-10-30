@@ -106,45 +106,57 @@
             "type": "annotated",
             "visible": true,
             "title": "How it works",
-            "image": "assets/shots/renamy-page-1792261362.png",
+            "image": "assets/shots/renamy-page-1793381720.png",
             "caption": "",
             "numbered": true,
             "notes": [
               {
                 "kind": "arrow",
-                "x": 26.9,
-                "y": 8.8,
+                "x": 21.6,
+                "y": 8.1,
                 "w": 6,
                 "h": 8,
                 "side": "auto",
                 "color": "yellow",
                 "text": "Start from a folder, or drop files in.",
                 "lx": -13.59,
-                "ly": 4
+                "ly": -4
               },
               {
                 "kind": "circle",
-                "x": 14.5,
-                "y": 26,
-                "w": 19,
-                "h": 22,
+                "x": 11.9,
+                "y": 23.4,
+                "w": 14,
+                "h": 20,
                 "side": "auto",
                 "color": "blue",
                 "text": "Filter by status and kind.",
                 "lx": -13.59,
-                "ly": 62
+                "ly": 50
               },
               {
                 "kind": "arrow",
-                "x": 78,
-                "y": 26,
+                "x": 72.5,
+                "y": 23.7,
                 "w": 14,
                 "h": 10,
                 "side": "auto",
                 "color": "red",
                 "text": "Pick the right title when there are several.",
                 "lx": 109.99,
-                "ly": 30.08
+                "ly": 25
+              },
+              {
+                "kind": "arrow",
+                "x": 90.3,
+                "y": 87.8,
+                "w": 10,
+                "h": 6,
+                "side": "auto",
+                "color": "green",
+                "text": "Rename everything in one click.",
+                "lx": 78,
+                "ly": 108
               }
             ]
           }
