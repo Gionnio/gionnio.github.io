@@ -25,7 +25,8 @@
 
   // State shared between render() and the scroll handler
   let apps = [];
-  let active = -1;
+  let shown = []; // the apps in the MacBook showcase: TV apps have their own section
+  let active = null;
   let current = null; // app id when showing a project page
   const preview = new URLSearchParams(location.search).has("preview");
 
@@ -49,6 +50,31 @@
         <div class="notch"></div>${inner}
       </div></div></div>
       <div class="base"><span></span></div>
+    </div>`;
+
+  // Apps that run on a television: drawn in a flat TV, outside the MacBook showcase
+  const isTV = (a) => a.device === "tv";
+
+  // TV screenshots are the whole screen, so they fill it: no desktop behind them
+  const tvScreenHTML = (a, L) => a.shot
+    ? `<img class="tvshot" src="${esc(a.shot)}" alt="${esc(a.name)} screenshot" loading="lazy">`
+    : screenHTML(a, L);
+
+  // Flat TV: thin bezel in CSS, neck and pedestal in SVG
+  const tvHTML = (inner) => `
+    <div class="tv">
+      <div class="tv-panel"><div class="tv-screen">${inner}</div></div>
+      <svg class="tv-stand" viewBox="0 0 1000 52" aria-hidden="true">
+        <defs>
+          <linearGradient id="tv-metal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4a4b50"/><stop offset="1" stop-color="#1c1c1f"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="500" cy="46" rx="190" ry="5" fill="#000" opacity="0.18"/>
+        <path d="M484 0h32l4 30h-40z" fill="url(#tv-metal)"/>
+        <rect x="340" y="29" width="320" height="12" rx="6" fill="url(#tv-metal)"/>
+        <rect x="350" y="30" width="300" height="2" rx="1" fill="#fff" opacity="0.12"/>
+      </svg>
     </div>`;
 
   const badgeHTML = (a, L) => a.public
@@ -108,7 +134,7 @@
     const appLink = (a, i) => current
       // On a project page every project opens its own page (or the home showcase if it has none)
       ? `<a href="${hasPage(a) ? pageHref(a) : homeHref(`#${esc(a.id)}`)}"${hasPage(a) ? ` data-page="${esc(a.id)}"` : ` data-home="#${esc(a.id)}"`} class="${a.id === current ? "on" : ""}">`
-      : `<a href="#${esc(a.id)}" data-goto="${i}">`;
+      : `<a href="#${esc(a.id)}" data-goto="${i}" data-id="${esc(a.id)}">`;
     const moreLink = (l) => current && l.url.startsWith("#")
       ? `<a href="${homeHref(esc(l.url))}" data-home="${esc(l.url)}">`
       : `<a href="${esc(l.url)}"${external(l.url)}>`;
@@ -131,7 +157,8 @@
 
   function renderHome(c) {
     const L = c.showcase.labels;
-    const n = Math.max(apps.length, 1);
+    const n = Math.max(shown.length, 1);
+    const tvs = apps.filter(isTV);
     const h = c.hero;
     const cards = c.bento.cards.filter((k) => k.visible !== false);
     document.title = c.site.title;
@@ -145,18 +172,28 @@
         ${h.lede ? `<p class="lede">${lines(h.lede)}</p>` : ""}
         ${h.scrollHint && apps.length ? `<a class="scroll-hint" href="#showcase">${esc(h.scrollHint)}</a>` : ""}
       </section>
-      ${apps.length ? `
+      ${shown.length ? `
       <section class="showcase" id="showcase" style="--n:${n}">
         <div class="stage">
-          ${macbookHTML(`<div class="strip">${apps.map((a) => `<div class="slide">${screenHTML(a, L)}</div>`).join("")}</div>`)}
-          <div class="details">${apps.map((a, i) =>
-            `<div class="detail" id="${esc(a.id)}" data-i="${i}">${detailsHTML(a, L)}</div>`).join("")}</div>
-          <div class="dots">${apps.map((a, i) => `<button data-goto="${i}" aria-label="${esc(a.name)}"></button>`).join("")}</div>
+          ${macbookHTML(`<div class="strip">${shown.map((a) => `<div class="slide">${screenHTML(a, L)}</div>`).join("")}</div>`)}
+          <div class="details">${shown.map((a) =>
+            `<div class="detail" id="${esc(a.id)}">${detailsHTML(a, L)}</div>`).join("")}</div>
+          <div class="dots">${shown.map((a) => `<button data-goto="${apps.indexOf(a)}" data-id="${esc(a.id)}" aria-label="${esc(a.name)}"></button>`).join("")}</div>
         </div>
-      </section>
+      </section>` : ""}
+      ${tvs.length ? `
+      <section class="tvs">
+        ${L.tv ? `<p class="mono">${esc(L.tv)}</p>` : ""}
+        ${tvs.map((a) => `
+        <div class="tv-row" id="${esc(a.id)}">
+          ${tvHTML(tvScreenHTML(a, L))}
+          <div class="tv-detail">${detailsHTML(a, L)}</div>
+        </div>`).join("")}
+      </section>` : ""}
+      ${apps.length ? `
       <div class="mobile-list">${apps.map((a) => `
         <article class="mcard" id="m-${esc(a.id)}">
-          <div class="mscreen">${screenHTML(a, L)}</div>
+          ${isTV(a) ? `<div class="mtv">${tvHTML(tvScreenHTML(a, L))}</div>` : `<div class="mscreen">${screenHTML(a, L)}</div>`}
           ${detailsHTML(a, L)}
         </article>`).join("")}</div>` : ""}
       ${cards.length ? `<section class="bento" id="${esc(c.bento.anchor || "about")}">${cards.map(cardHTML).join("")}</section>` : ""}
@@ -175,9 +212,11 @@
           <div class="features">${(b.items || []).map((f) => `
             <div class="feature">${f.title ? `<h3>${esc(f.title)}</h3>` : ""}${md(f.text)}</div>`).join("")}</div></section>`;
       case "image":
-        return b.image ? `<figure class="block shot${b.frame === "macbook" ? " framed" : ""}">
+        return b.image ? `<figure class="block shot${b.frame === "macbook" || b.frame === "tv" ? " framed" : ""}">
           ${b.frame === "macbook"
             ? macbookHTML(`<div class="wall" style="--c1:${esc(a.color)};--c2:${esc(a.color2)}"><img class="window" src="${esc(b.image)}" alt="${esc(b.caption)}"></div>`)
+            : b.frame === "tv"
+            ? tvHTML(`<img class="tvshot" src="${esc(b.image)}" alt="${esc(b.caption)}" loading="lazy">`)
             : `<div class="wall plain" style="--c1:${esc(a.color)};--c2:${esc(a.color2)}"><img class="window" src="${esc(b.image)}" alt="${esc(b.caption)}" loading="lazy"></div>`}
           ${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ""}</figure>` : "";
       case "annotated": {
@@ -220,7 +259,7 @@
           ${actionsHTML(a, L)}
           ${a.note ? `<p class="note">${esc(a.note)}</p>` : ""}
         </header>
-        <div class="project-hero">${macbookHTML(screenHTML(a, L))}</div>
+        <div class="project-hero">${isTV(a) ? tvHTML(tvScreenHTML(a, L)) : macbookHTML(screenHTML(a, L))}</div>
         ${(page.blocks || []).map((b, i) => (b.visible !== false ? blockHTML(b, a, i).replace(/^\s*<(\w+)/, `<$1 data-block="${i}"`) : "")).join("")}
         ${next && next !== a ? `
         <a class="next" href="${pageHref(next)}" data-page="${esc(next.id)}">
@@ -237,9 +276,10 @@
   function render(c, pageId = current) {
     content = c;
     apps = c.apps.filter((a) => a.visible !== false && (a.public || c.showcase.showPrivate));
+    shown = apps.filter((x) => !isTV(x));
     const a = pageId && apps.find((x) => x.id === pageId && hasPage(x));
     current = a ? a.id : null;
-    active = -1;
+    active = null;
     $('meta[name="description"]').setAttribute("content", a ? (a.tagline || a.description) : c.site.description);
     $("#sidebar").innerHTML = sidebarHTML(c);
     if (a) renderProject(c, a); else renderHome(c);
@@ -267,12 +307,13 @@
 
   /* ---------- Scroll-driven showcase ---------- */
 
-  const setActive = (i) => {
-    if (i === active || !apps[i]) return;
-    active = i;
-    $$(".detail").forEach((d, j) => d.classList.toggle("on", j === i));
-    $$(".nav-apps a").forEach((l, j) => l.classList.toggle("on", j === i));
-    $$(".dots button").forEach((d, j) => d.classList.toggle("on", j === i));
+  // By app id: the MacBook showcase and the TV section hold different apps
+  const setActive = (id) => {
+    if (!id || id === active) return;
+    active = id;
+    $$(".detail").forEach((d) => d.classList.toggle("on", d.id === id));
+    $$(".nav-apps a").forEach((l) => l.classList.toggle("on", l.dataset.id === id));
+    $$(".dots button").forEach((d) => d.classList.toggle("on", d.dataset.id === id));
   };
 
   // Hold each screen for a while, then slide to the next one
@@ -283,36 +324,51 @@
   };
 
   function onScroll() {
-    const showcase = $("#showcase");
-    if (!showcase) return;
-    const n = apps.length;
+    if (current) return;
     if (mobile.matches) {
-      let best = 0, bestD = Infinity;
-      $$(".mcard").forEach((card, j) => {
+      let best = null, bestD = Infinity;
+      $$(".mcard").forEach((card) => {
         const r = card.getBoundingClientRect();
         const d = Math.abs(r.top + r.height / 2 - innerHeight / 2);
-        if (d < bestD) { bestD = d; best = j; }
+        if (d < bestD) { bestD = d; best = card.id.slice(2); }
       });
       setActive(best);
       return;
     }
-    const total = showcase.offsetHeight - innerHeight;
-    const p = total > 0 ? Math.min(1, Math.max(0, -showcase.getBoundingClientRect().top / total)) : 0;
-    const pos = p * Math.max(n - 1, 0);
-    $(".strip").style.transform = `translateY(${(-hold(pos) * 100) / n}%)`;
-    setActive(Math.round(pos));
+    let id = null;
+    const showcase = $("#showcase");
+    if (showcase) {
+      const n = shown.length;
+      const total = showcase.offsetHeight - innerHeight;
+      const p = total > 0 ? Math.min(1, Math.max(0, -showcase.getBoundingClientRect().top / total)) : 0;
+      const pos = p * Math.max(n - 1, 0);
+      $(".strip").style.transform = `translateY(${(-hold(pos) * 100) / n}%)`;
+      id = shown[Math.round(pos)]?.id;
+    }
+    // A TV app is active while its row crosses the middle of the window
+    const mid = innerHeight / 2;
+    const tv = $$(".tv-row").find((r) => {
+      const b = r.getBoundingClientRect();
+      return b.top < mid && b.bottom > mid;
+    });
+    setActive(tv ? tv.id : id);
   }
 
   function goTo(i, behavior = "smooth") {
-    if (!apps[i]) return;
+    const a = apps[i];
+    if (!a) return;
     if (mobile.matches) {
-      document.getElementById(`m-${apps[i].id}`)?.scrollIntoView({ behavior, block: "center" });
+      document.getElementById(`m-${a.id}`)?.scrollIntoView({ behavior, block: "center" });
+      return;
+    }
+    if (isTV(a)) {
+      document.getElementById(a.id)?.scrollIntoView({ behavior, block: "center" });
       return;
     }
     const showcase = $("#showcase");
     const total = showcase.offsetHeight - innerHeight;
-    const n = apps.length;
-    scrollTo({ top: showcase.offsetTop + (n > 1 ? (total * i) / (n - 1) : 0), behavior });
+    const n = shown.length, k = shown.indexOf(a);
+    scrollTo({ top: showcase.offsetTop + (n > 1 ? (total * k) / (n - 1) : 0), behavior });
   }
 
   // Scroll to a project in the showcase or to any element id

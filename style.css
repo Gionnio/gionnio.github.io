@@ -116,6 +116,30 @@ main { margin-left: var(--sidebar); }
   background: linear-gradient(#9a9ca2, #bfc1c6); border-radius: 0 0 8px 8px;
 }
 
+/* Flat TV for the apps that run on a television: CSS bezel, SVG stand */
+.tv { width: 100%; }
+.tv-panel {
+  padding: 0.8%; background: linear-gradient(#2c2d31, #0c0c0e);
+  border-radius: 1% / 1.8%;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 34px 50px -30px rgba(0, 0, 0, 0.45);
+}
+.tv-screen {
+  aspect-ratio: 16 / 9; overflow: hidden; border-radius: 0.3% / 0.55%;
+  background: #000; container-type: inline-size;
+}
+.tvshot { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tv-stand { display: block; width: 100%; height: auto; margin-top: -1px; }
+
+/* TV apps on the home page: their own section after the MacBook showcase */
+.tvs { display: flex; flex-direction: column; gap: 14vh; padding: 14vh clamp(24px, 4vw, 72px) 6vh; }
+.tvs > .mono { margin-bottom: -8vh; }
+.tv-row {
+  display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); align-items: center;
+  gap: clamp(32px, 4vw, 72px); scroll-margin-top: 10vh;
+}
+.tv-row .tv { width: min(100%, calc((100vh - 160px) * 1.7)); justify-self: center; }
+.tv-detail { display: flex; flex-direction: column; gap: 14px; }
+
 /* Desktop inside the screen: soft tint of the project color */
 .wall {
   width: 100%; height: 100%; overflow: hidden;
@@ -183,6 +207,7 @@ main { margin-left: var(--sidebar); }
 .intro { font-size: 19px; color: var(--muted); display: flex; flex-direction: column; gap: 12px; }
 .project-head .cmd { max-width: 520px; }
 .project-hero .macbook { width: 100%; }
+.shot.framed .tv { width: 100%; }
 .block h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 18px; }
 .prose, .feature, .quote-body { display: flex; flex-direction: column; gap: 12px; }
 .prose { font-size: 17px; max-width: 680px; }
@@ -263,7 +288,8 @@ footer { padding: 40px clamp(24px, 4vw, 72px) 60px; }
   main { margin-left: 0; }
   .hero { min-height: 70vh; padding: 56px 16px; }
   .lede { font-size: 17px; }
-  .showcase { display: none; }
+  .showcase, .tvs { display: none; }
+  .mtv { padding: 10px 6px 0; }
   .mobile-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 0 16px; }
   .mcard {
     display: flex; flex-direction: column; gap: 14px; padding: 12px 12px 22px;
