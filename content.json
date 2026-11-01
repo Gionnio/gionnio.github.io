@@ -581,6 +581,198 @@
       }
     },
     {
+      "id": "platea-home",
+      "visible": true,
+      "name": "Platea Home",
+      "public": true,
+      "color": "#D0566C",
+      "color2": "#5A1A2A",
+      "tagline": "Your TV, finally calm.",
+      "description": "A tvOS-style home screen for Android TV, Google TV and Fire TV: six apps in a dock, no ads, no sponsored rows, no internet access. Around 100 KB.",
+      "tags": [
+        "Java",
+        "Android TV",
+        "Fire TV"
+      ],
+      "note": "Early release: tested on Sony BRAVIA, TCL and Fire TV Stick 4K Max.",
+      "repo": "https://github.com/Gionnio/platea-home",
+      "download": "https://github.com/Gionnio/platea-home/releases",
+      "brew": "",
+      "icon": "assets/icons/platea-home.png",
+      "shot": "assets/shots/platea-home.jpg",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "My TVs opened on rows of ads and things I never asked for. I wanted the calm of an Apple TV home screen, so I tried theming other launchers first. None of them came close, so I made my own: small, offline, and quiet."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "A real top shelf",
+                "text": "The focused app's category, name and one line about it, big and readable from the couch."
+              },
+              {
+                "title": "Six apps in the dock",
+                "text": "Hold OK to move, add, replace, hide an app or open its info. One dimmed row below, then All apps."
+              },
+              {
+                "title": "Quick settings",
+                "text": "Picture, sound, network, inputs and the volume bar in a side panel, without leaving Home."
+              },
+              {
+                "title": "Inputs that know their devices",
+                "text": "Live TV and the HDMI ports, with the device names read over HDMI-CEC."
+              },
+              {
+                "title": "Three palettes",
+                "text": "Graphite, Night blue or Day, with reduced animations if you want them."
+              },
+              {
+                "title": "Sipario",
+                "text": "A quiet screen saver: the time, a line and the date on black, moving a little every minute."
+              },
+              {
+                "title": "Offline and light",
+                "text": "No `INTERNET` permission, no libraries, no tracking. About 100 KB, around 35 MB of RAM."
+              },
+              {
+                "title": "Fire TV too",
+                "text": "Fire OS keeps Amazon's home, so on a Fire TV it opens through dumbtv's Home guard. Debloating is left to CleanYourTV and dumbtv, model by model."
+              }
+            ]
+          },
+          {
+            "type": "annotated",
+            "visible": true,
+            "title": "How it works",
+            "image": "assets/shots/platea-home-firetv.jpg",
+            "caption": "Fire TV Stick 4K Max, Day palette. The interface follows the TV's language.",
+            "numbered": true,
+            "notes": [
+              {
+                "kind": "circle",
+                "x": 20,
+                "y": 37,
+                "w": 32,
+                "h": 26,
+                "side": "auto",
+                "color": "yellow",
+                "text": "The top shelf names the focused app.",
+                "lx": -21,
+                "ly": 30
+              },
+              {
+                "kind": "arrow",
+                "x": 42.5,
+                "y": 66,
+                "w": 14,
+                "h": 14,
+                "side": "auto",
+                "color": "blue",
+                "text": "Six apps in the dock: focus lifts the tile.",
+                "lx": -21,
+                "ly": 66
+              },
+              {
+                "kind": "circle",
+                "x": 89,
+                "y": 7.4,
+                "w": 14,
+                "h": 10,
+                "side": "auto",
+                "color": "green",
+                "text": "Inputs, network and quick settings.",
+                "lx": 121,
+                "ly": 8
+              },
+              {
+                "kind": "arrow",
+                "x": 87.5,
+                "y": 90,
+                "w": 13,
+                "h": 13,
+                "side": "auto",
+                "color": "red",
+                "text": "Every other app, one click away.",
+                "lx": 121,
+                "ly": 88
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-menu.jpg",
+            "caption": "Hold OK on an app: Move, Remove from dock, Hide, App info.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-move.jpg",
+            "caption": "Move: Left and Right to slide it, OK to drop it, Back to cancel.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-quick.jpg",
+            "caption": "Quick settings, with the volume bar.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-inputs.jpg",
+            "caption": "Inputs, with device names over HDMI-CEC (Sony BRAVIA, Graphite palette).",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-palette.jpg",
+            "caption": "Launcher settings: three palettes, previewed before you pick one.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-apps.jpg",
+            "caption": "All apps, six per row. Dock apps have a dot.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-home-sipario.jpg",
+            "caption": "Sipario, the screen saver.",
+            "frame": "plain"
+          },
+          {
+            "type": "text",
+            "visible": true,
+            "title": "Get it",
+            "text": "Platea Home is installed over the network with `adb`: download `platea-home.apk` from the releases and follow the README, or open the repo in an AI coding agent and paste `PROMPT.md`. Undo is one command."
+          }
+        ]
+      }
+    },
+    {
       "id": "tiny-little-patcher",
       "visible": true,
       "name": "Tiny Little Patcher",
