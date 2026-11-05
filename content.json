@@ -775,6 +775,168 @@
       }
     },
     {
+      "id": "platea",
+      "visible": true,
+      "name": "Platea",
+      "public": true,
+      "color": "#D9A55B",
+      "color2": "#6E1A28",
+      "tagline": "Every film the way it was made.",
+      "description": "A Jellyfin client for Android TV, Google TV and Fire TV, made for a curated 4K library: direct play first, real Dolby Vision, HDR10+, audio passthrough and subtitles done right.",
+      "tags": [
+        "Kotlin",
+        "Android TV",
+        "Fire TV",
+        "Jellyfin"
+      ],
+      "note": "First public release: tested on Fire TV Stick 4K Max and Sony BRAVIA, with Jellyfin 12.",
+      "repo": "https://github.com/Gionnio/platea",
+      "download": "https://github.com/Gionnio/platea/releases/latest",
+      "brew": "",
+      "icon": "assets/icons/platea.png",
+      "shot": "assets/shots/platea.jpg",
+      "device": "tv",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "I prepare every film in my library with care, then the TV client remuxed it, dropped the Dolby Vision or stuttered on 24p. I started from Wholphin to fix the playback engine and ended up with a client of my own: one that sends the file as it is and shows exactly how it was served."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Direct play first",
+                "text": "The device profile comes from what the TV really decodes and shows, so the server sends the file as it is. Conversion is a logged fallback you can switch off."
+              },
+              {
+                "title": "Real Dolby Vision",
+                "text": "Dolby Vision, HDR10+ and HDR10 on the right decoder, with a notice when a file loses Dolby Vision."
+              },
+              {
+                "title": "Sound as recorded",
+                "text": "Passthrough for Dolby Digital Plus and Atmos; TrueHD and DTS decoded by the app when the TV cannot take them."
+              },
+              {
+                "title": "Smooth 24p",
+                "text": "Refresh rate switching before playback, and tunneled playback on TVs that only offer 60 Hz."
+              },
+              {
+                "title": "Subtitles done right",
+                "text": "PGS and ASS drawn by the app, forced-only by default, full subtitles when the audio is in another language."
+              },
+              {
+                "title": "Straight from the NAS",
+                "text": "Optional: in direct play the file is read from the SMB share, like Infuse, with the server stream as a fallback."
+              },
+              {
+                "title": "Its own interface",
+                "text": "Velvet and gold: featured home, libraries, technical sheet, collections, people, voice search, seek bar previews, skip intro, profiles with PIN."
+              },
+              {
+                "title": "Updates itself",
+                "text": "New releases are offered on the home and installed over the app. No analytics, no telemetry."
+              }
+            ]
+          },
+          {
+            "type": "annotated",
+            "visible": true,
+            "title": "How it works",
+            "image": "assets/shots/platea-movie.jpg",
+            "caption": "Fire TV Stick 4K Max, movie page (Italian interface). The technical sheet says how the file will be served before you press Play.",
+            "numbered": true,
+            "notes": [
+              {
+                "kind": "circle",
+                "x": 37,
+                "y": 49,
+                "w": 20,
+                "h": 8,
+                "side": "auto",
+                "color": "green",
+                "text": "Direct play with Dolby Vision: no remux, no conversion.",
+                "lx": 121,
+                "ly": 30
+              },
+              {
+                "kind": "circle",
+                "x": 26,
+                "y": 57,
+                "w": 44,
+                "h": 22,
+                "side": "auto",
+                "color": "yellow",
+                "text": "Video, HDR, audio, subtitles and file, read from the server.",
+                "lx": -21,
+                "ly": 57
+              },
+              {
+                "kind": "arrow",
+                "x": 24.5,
+                "y": 39,
+                "w": 12,
+                "h": 10,
+                "side": "auto",
+                "color": "blue",
+                "text": "Audio and subtitles, remembered per title and per series.",
+                "lx": -21,
+                "ly": 30
+              },
+              {
+                "kind": "arrow",
+                "x": 50,
+                "y": 87,
+                "w": 12,
+                "h": 12,
+                "side": "auto",
+                "color": "red",
+                "text": "Cast: every person opens their titles in your library.",
+                "lx": 121,
+                "ly": 86
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea.jpg",
+            "caption": "Home: a featured title, then Continue watching and the latest additions.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-movies.jpg",
+            "caption": "Library: filters, genres and sorting, watched titles marked.",
+            "frame": "plain"
+          },
+          {
+            "type": "image",
+            "visible": true,
+            "title": "",
+            "image": "assets/shots/platea-series.jpg",
+            "caption": "Series page: seasons, episodes, the theme song from Jellyfin.",
+            "frame": "plain"
+          },
+          {
+            "type": "text",
+            "visible": true,
+            "title": "Get it",
+            "text": "Download the APK from the releases (`arm64-v8a` for most TVs, `armeabi-v7a` for the Fire TV Stick) and install it with Downloader or `adb`, as the README explains. From then on Platea updates itself. It is free software under the GPL-2.0, a fork of Wholphin by damontecres."
+          }
+        ]
+      }
+    },
+    {
       "id": "tiny-little-patcher",
       "visible": true,
       "name": "Tiny Little Patcher",
