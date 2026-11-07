@@ -582,6 +582,196 @@
       }
     },
     {
+      "id": "tiny-little-patcher",
+      "visible": true,
+      "name": "Tiny Little Patcher",
+      "public": true,
+      "color": "#2DD4BF",
+      "color2": "#0E7490",
+      "tagline": "ROM Patcher straight to your browser.",
+      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Nothing to install.",
+      "tags": [
+        "Rust",
+        "WebAssembly"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/tiny-little-patcher",
+      "web": "patcher/",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/tiny-little-patcher.png",
+      "shot": "assets/shots/tiny-little-patcher.png",
+      "page": {
+        "enabled": false,
+        "intro": "",
+        "blocks": []
+      }
+    },
+    {
+      "id": "dumpboy",
+      "visible": true,
+      "name": "DumpBoy",
+      "public": false,
+      "color": "#EF4444",
+      "color2": "#B91C1C",
+      "tagline": "Childhood memories, safe on your Mac.",
+      "description": "A native app for the GBFlash and Submodule GB01 readers: back up the Game Boy, Game Boy Color and Game Boy Advance cartridges you own, save and restore game saves with verification at every step, browse Game Boy Camera photos and play right away.",
+      "tags": [
+        "SwiftUI",
+        "USB",
+        "mGBA"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/dumpboy",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/dumpboy.png",
+      "shot": "assets/shots/dumpboy-1792256069.png",
+      "page": {
+        "enabled": true,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "Who hasn’t picked up a Game Boy cartridge, eager to revisit an old save file filled with memories and joy, only to discover that, over the years, the battery has died and the save file is gone? I wasn’t satisfied with the software for the most common flashers on the market for macOS, so I created this tool, which has the features I was looking for. My old games, now always with me."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "posta",
+      "visible": false,
+      "name": "Posta",
+      "public": false,
+      "color": "#3D8BF2",
+      "color2": "#1F4FC4",
+      "tagline": "Gmail, the Mac way.",
+      "description": "A native Liquid Glass Gmail client: Apple Mail's feel with Gmail's labels, search and conversations.",
+      "tags": [
+        "SwiftUI"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/posta",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/posta.png",
+      "shot": "assets/shots/posta.png",
+      "page": {
+        "enabled": false,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "Come on, who doesn't want their Gmail account in Apple Mail, without all the usual limitations?"
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Mail-style layout",
+                "text": "Mailboxes and nested labels, conversation list and full threads, like Apple Mail."
+              },
+              {
+                "title": "Real Gmail",
+                "text": "Labels, threads, archive, stars and Gmail search syntax through the Gmail API."
+              },
+              {
+                "title": "Liquid Glass",
+                "text": "A native toolbar with grouped actions that feels at home on macOS."
+              },
+              {
+                "title": "Notifications",
+                "text": "Reply, archive or delete straight from the notification."
+              },
+              {
+                "title": "Always there",
+                "text": "Keeps syncing from the menu bar when the window is closed."
+              },
+              {
+                "title": "Keyboard first",
+                "text": "Mail shortcuts plus optional Gmail single-key shortcuts."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "taccuino",
+      "visible": false,
+      "name": "Taccuino",
+      "public": false,
+      "color": "#34D399",
+      "color2": "#047857",
+      "tagline": "Type first, save whenever.",
+      "description": "A fast, native text and code editor with tabs, sessions that keep your unsaved drafts, syntax colors, regex search and macros.",
+      "tags": [
+        "SwiftUI",
+        "AppKit"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/taccuino",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/taccuino.png",
+      "shot": "assets/shots/taccuino.png",
+      "page": {
+        "enabled": false,
+        "intro": "",
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// why I made it",
+            "text": "On Windows I lived in Notepad++: open it, paste something, close it, and find everything still there the next day. I wanted that same habit on my Mac, in an app that looks like it belongs there."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "Never asks to save",
+                "text": "Quit whenever you want: open files and unsaved drafts, even untitled ones, come back as you left them."
+              },
+              {
+                "title": "40 languages",
+                "text": "Syntax colors, seven themes and an outline of functions, classes and headings."
+              },
+              {
+                "title": "Find everywhere",
+                "text": "Normal, extended and regex search in the document, in every open tab or in a whole folder."
+              },
+              {
+                "title": "Encodings",
+                "text": "Detects 22 encodings and any line ending, and converts between them."
+              },
+              {
+                "title": "Line tools",
+                "text": "Sort, deduplicate, trim, join, move, duplicate, comment and change case from one menu."
+              },
+              {
+                "title": "Macros",
+                "text": "Record what you type and the commands you use, then replay it once or a thousand times."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "id": "platea-home",
       "visible": true,
       "name": "Platea Home",
@@ -932,196 +1122,6 @@
             "visible": true,
             "title": "Get it",
             "text": "Download the APK from the releases (`arm64-v8a` for most TVs, `armeabi-v7a` for the Fire TV Stick) and install it with Downloader or `adb`, as the README explains. From then on Platea updates itself. It is free software under the GPL-2.0, a fork of Wholphin by damontecres."
-          }
-        ]
-      }
-    },
-    {
-      "id": "tiny-little-patcher",
-      "visible": true,
-      "name": "Tiny Little Patcher",
-      "public": true,
-      "color": "#2DD4BF",
-      "color2": "#0E7490",
-      "tagline": "ROM Patcher straight to your browser.",
-      "description": "Applies IPS, UPS and BPS patches to your ROMs, checking every checksum and fixing SNES headers for you. Nothing to install.",
-      "tags": [
-        "Rust",
-        "WebAssembly"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/tiny-little-patcher",
-      "web": "patcher/",
-      "download": "",
-      "brew": "",
-      "icon": "assets/icons/tiny-little-patcher.png",
-      "shot": "assets/shots/tiny-little-patcher.png",
-      "page": {
-        "enabled": false,
-        "intro": "",
-        "blocks": []
-      }
-    },
-    {
-      "id": "dumpboy",
-      "visible": true,
-      "name": "DumpBoy",
-      "public": false,
-      "color": "#EF4444",
-      "color2": "#B91C1C",
-      "tagline": "Childhood memories, safe on your Mac.",
-      "description": "A native app for the GBFlash and Submodule GB01 readers: back up the Game Boy, Game Boy Color and Game Boy Advance cartridges you own, save and restore game saves with verification at every step, browse Game Boy Camera photos and play right away.",
-      "tags": [
-        "SwiftUI",
-        "USB",
-        "mGBA"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/dumpboy",
-      "download": "",
-      "brew": "",
-      "icon": "assets/icons/dumpboy.png",
-      "shot": "assets/shots/dumpboy-1792256069.png",
-      "page": {
-        "enabled": true,
-        "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "Who hasn’t picked up a Game Boy cartridge, eager to revisit an old save file filled with memories and joy, only to discover that, over the years, the battery has died and the save file is gone? I wasn’t satisfied with the software for the most common flashers on the market for macOS, so I created this tool, which has the features I was looking for. My old games, now always with me."
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "posta",
-      "visible": false,
-      "name": "Posta",
-      "public": false,
-      "color": "#3D8BF2",
-      "color2": "#1F4FC4",
-      "tagline": "Gmail, the Mac way.",
-      "description": "A native Liquid Glass Gmail client: Apple Mail's feel with Gmail's labels, search and conversations.",
-      "tags": [
-        "SwiftUI"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/posta",
-      "download": "",
-      "brew": "",
-      "icon": "assets/icons/posta.png",
-      "shot": "assets/shots/posta.png",
-      "page": {
-        "enabled": false,
-        "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "Come on, who doesn't want their Gmail account in Apple Mail, without all the usual limitations?"
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": [
-              {
-                "title": "Mail-style layout",
-                "text": "Mailboxes and nested labels, conversation list and full threads, like Apple Mail."
-              },
-              {
-                "title": "Real Gmail",
-                "text": "Labels, threads, archive, stars and Gmail search syntax through the Gmail API."
-              },
-              {
-                "title": "Liquid Glass",
-                "text": "A native toolbar with grouped actions that feels at home on macOS."
-              },
-              {
-                "title": "Notifications",
-                "text": "Reply, archive or delete straight from the notification."
-              },
-              {
-                "title": "Always there",
-                "text": "Keeps syncing from the menu bar when the window is closed."
-              },
-              {
-                "title": "Keyboard first",
-                "text": "Mail shortcuts plus optional Gmail single-key shortcuts."
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "taccuino",
-      "visible": false,
-      "name": "Taccuino",
-      "public": false,
-      "color": "#34D399",
-      "color2": "#047857",
-      "tagline": "Type first, save whenever.",
-      "description": "A fast, native text and code editor with tabs, sessions that keep your unsaved drafts, syntax colors, regex search and macros.",
-      "tags": [
-        "SwiftUI",
-        "AppKit"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/taccuino",
-      "download": "",
-      "brew": "",
-      "icon": "assets/icons/taccuino.png",
-      "shot": "assets/shots/taccuino.png",
-      "page": {
-        "enabled": false,
-        "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "On Windows I lived in Notepad++: open it, paste something, close it, and find everything still there the next day. I wanted that same habit on my Mac, in an app that looks like it belongs there."
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": [
-              {
-                "title": "Never asks to save",
-                "text": "Quit whenever you want: open files and unsaved drafts, even untitled ones, come back as you left them."
-              },
-              {
-                "title": "40 languages",
-                "text": "Syntax colors, seven themes and an outline of functions, classes and headings."
-              },
-              {
-                "title": "Find everywhere",
-                "text": "Normal, extended and regex search in the document, in every open tab or in a whole folder."
-              },
-              {
-                "title": "Encodings",
-                "text": "Detects 22 encodings and any line ending, and converts between them."
-              },
-              {
-                "title": "Line tools",
-                "text": "Sort, deduplicate, trim, join, move, duplicate, comment and change case from one menu."
-              },
-              {
-                "title": "Macros",
-                "text": "Record what you type and the commands you use, then replay it once or a thousand times."
-              }
-            ]
           }
         ]
       }
