@@ -647,6 +647,32 @@
       }
     },
     {
+      "id": "retroteca",
+      "visible": true,
+      "name": "Retroteca",
+      "public": false,
+      "color": "#A33BE0",
+      "color2": "#5B21B6",
+      "tagline": "Every game you own, one library.",
+      "description": "A home for the games you own on your Mac: backups played with official emulators it installs and updates, native decompilation ports with an honest fidelity label, and Switch games rebuilt as Mac apps from your own files, with mods, cheats and saves.",
+      "tags": [
+        "SwiftUI",
+        "Emulation",
+        "nxnative"
+      ],
+      "note": "",
+      "repo": "https://github.com/Gionnio/retroteca",
+      "download": "",
+      "brew": "",
+      "icon": "assets/icons/retroteca.png",
+      "shot": "assets/shots/retroteca.jpg",
+      "page": {
+        "enabled": false,
+        "intro": "",
+        "blocks": []
+      }
+    },
+    {
       "id": "posta",
       "visible": false,
       "name": "Posta",
