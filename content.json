@@ -711,68 +711,6 @@
       }
     },
     {
-      "id": "posta",
-      "visible": false,
-      "name": "Posta",
-      "public": false,
-      "color": "#3D8BF2",
-      "color2": "#1F4FC4",
-      "tagline": "Gmail, the Mac way.",
-      "description": "A native Liquid Glass Gmail client: Apple Mail's feel with Gmail's labels, search and conversations.",
-      "tags": [
-        "SwiftUI"
-      ],
-      "note": "",
-      "repo": "https://github.com/Gionnio/posta",
-      "download": "",
-      "brew": "",
-      "icon": "assets/icons/posta.png",
-      "shot": "assets/shots/posta.png",
-      "page": {
-        "enabled": false,
-        "intro": "",
-        "blocks": [
-          {
-            "type": "quote",
-            "visible": true,
-            "title": "// why I made it",
-            "text": "Come on, who doesn't want their Gmail account in Apple Mail, without all the usual limitations?"
-          },
-          {
-            "type": "features",
-            "visible": true,
-            "title": "Features",
-            "items": [
-              {
-                "title": "Mail-style layout",
-                "text": "Mailboxes and nested labels, conversation list and full threads, like Apple Mail."
-              },
-              {
-                "title": "Real Gmail",
-                "text": "Labels, threads, archive, stars and Gmail search syntax through the Gmail API."
-              },
-              {
-                "title": "Liquid Glass",
-                "text": "A native toolbar with grouped actions that feels at home on macOS."
-              },
-              {
-                "title": "Notifications",
-                "text": "Reply, archive or delete straight from the notification."
-              },
-              {
-                "title": "Always there",
-                "text": "Keeps syncing from the menu bar when the window is closed."
-              },
-              {
-                "title": "Keyboard first",
-                "text": "Mail shortcuts plus optional Gmail single-key shortcuts."
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "taccuino",
       "visible": false,
       "name": "Taccuino",
