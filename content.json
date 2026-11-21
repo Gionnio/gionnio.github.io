@@ -650,26 +650,64 @@
       "id": "retroteca",
       "visible": true,
       "name": "Retroteca",
-      "public": false,
+      "public": true,
       "color": "#A33BE0",
       "color2": "#5B21B6",
-      "tagline": "Every game you own, one library.",
-      "description": "A home for the games you own on your Mac: backups played with official emulators it installs and updates, native decompilation ports with an honest fidelity label, and Switch games rebuilt as Mac apps from your own files, with mods, cheats and saves.",
+      "tagline": "Your Switch games, as Mac apps.",
+      "description": "Builds the Switch and Switch 2 games you own into native Mac apps, on your Mac, from your own dumps, and keeps them in one library with mods, cheats and saves. No games, firmware or keys included.",
       "tags": [
         "SwiftUI",
-        "Emulation",
-        "nxnative"
+        "nxnative",
+        "Apple silicon"
       ],
-      "note": "",
+      "note": "Homebrew: run brew trust gionnio/tap first.",
       "repo": "https://github.com/Gionnio/retroteca",
-      "download": "",
-      "brew": "",
+      "download": "https://github.com/Gionnio/retroteca/releases/latest",
+      "brew": "brew install --cask gionnio/tap/retroteca",
       "icon": "assets/icons/retroteca.png",
       "shot": "assets/shots/retroteca.jpg",
       "page": {
-        "enabled": false,
+        "enabled": true,
         "intro": "",
-        "blocks": []
+        "blocks": [
+          {
+            "type": "quote",
+            "visible": true,
+            "title": "// your games, your files",
+            "text": "Retroteca includes no games, firmware or keys and downloads none. You add dumps of the games you own, made from your own console, and Retroteca builds them into Mac apps on your Mac with the nxnative engine."
+          },
+          {
+            "type": "features",
+            "visible": true,
+            "title": "Features",
+            "items": [
+              {
+                "title": "One library",
+                "text": "Drop NSP, XCI, NSZ, XCZ or NUP files: updates and DLC join their game, files stay where they are."
+              },
+              {
+                "title": "Native Mac apps",
+                "text": "Each game is built on your Mac with nxnative, with every stage shown."
+              },
+              {
+                "title": "Engine updates, explained",
+                "text": "What a newer engine changes for your games, and when an update means rebuilding."
+              },
+              {
+                "title": "Settings per chip",
+                "text": "Recommended values per game and per Apple chip family, backed by the engine's notes."
+              },
+              {
+                "title": "Mods, cheats and saves",
+                "text": "File mods, Atmosphère cheats, save backups and imports for every game."
+              },
+              {
+                "title": "Space under control",
+                "text": "Real disk usage, Fast or Compact caches, a free-space margin and external APFS disks."
+              }
+            ]
+          }
+        ]
       }
     },
     {
